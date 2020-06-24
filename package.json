@@ -1,0 +1,25 @@
+{
+  "name": "intermix-spa-portal",
+  "version": "1.0.0",
+  "description": "Single SPA MonoRepo",
+  "main": "index.js",
+  "author": "Tarun Kumar Sukhu",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf node_modules packages/**/node_modules",
+    "build": "yarn workspaces run build",
+    "start": "concurrently \"wsrun --parallel start\""
+  },
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "copyfiles": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "wsrun": "^5.2.1"
+  }
+}

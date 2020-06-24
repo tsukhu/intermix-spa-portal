@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.2.1/lib/system/single-spa.min.js",
+    "@intermix/layout": "https://singlespa-intermix-demo.netlify.app/layout/intermix-layout.js",
+    "@intermix/root-config": "https://singlespa-intermix-demo.netlify.app/root-config/intermix-root-config.js",
+    "@intermix/styleguide": "https://singlespa-intermix-demo.netlify.app/styleguide/intermix-styleguide.js",
+    "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
+    "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
+  }
+}

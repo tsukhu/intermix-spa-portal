@@ -1,0 +1,16 @@
+{
+  "name": "import-config",
+  "version": "1.0.0",
+  "description": "Import Configuration for app",
+  "main": "index.js",
+  "author": "Tarun Kumar Sukhu",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  },
+  "scripts": {
+    "clean": "rimraf ../dist/import-config",
+    "build": "npm rum clean && copyfiles -a -f ./deploy/*.json ../dist/import-config",
+    "start": "json-server --port 7000 --watch ./imports.json"
+  }
+}
