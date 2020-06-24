@@ -4,9 +4,10 @@
       "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
       "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
       "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.2.1/lib/system/single-spa.min.js",
-      "@intermix/root-config": "http://localhost:9000/intermix-root-config.js",
+      "@intermix/root-config": "http://localhost:9000/root-config.js",
       "@intermix/layout": "http://localhost:8000/intermix-layout.js",
       "@intermix/styleguide": "http://localhost:8001/intermix-styleguide.js",
+      "@intermix/dashboard": "http://localhost:8002/intermix-dashboard.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
     }

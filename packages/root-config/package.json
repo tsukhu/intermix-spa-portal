@@ -4,7 +4,9 @@
     "lint": "eslint src",
     "test": "jest",
     "prettier": "prettier --write './**'",
-    "build": "webpack --mode=production"
+    "clean": "rimraf dist && rimraf ../../dist/root-config",
+    "copy-for-deploy": "copyfiles -a -f ./*.ico ./dist && copyfiles -a -f ./_* ./dist && copyfiles -a -f ./dist/* ../../dist/root-config  && copyfiles -f ./dist/*.html ../../dist && copyfiles -f ./dist/_red* ../../dist && copyfiles -f ./dist/_head* ../../dist",
+    "build": "npm run clean && cross-env STAGE_ENV=development webpack --mode=production && npm run copy-for-deploy"
   },
   "husky": {
     "hooks": {

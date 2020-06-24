@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Root Config</title>
     <meta name="importmap-type" content="systemjs-importmap" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-family-montserrat {
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
     <% if (!isLocal) { %>
     <script
       type="systemjs-importmap"
@@ -29,12 +38,11 @@
     <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
   </head>
-  <body>
+  <body class="bg-gray-100 font-family-montserrat antialiased">
     <script>
       System.import('@intermix/root-config');
       System.import('@intermix/styleguide');
     </script>
-    <import-map-overrides-full
-    ></import-map-overrides-full>
+    <import-map-overrides-full></import-map-overrides-full>
   </body>
 </html>

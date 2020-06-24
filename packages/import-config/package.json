@@ -9,8 +9,8 @@
     "json-server": "^0.16.1"
   },
   "scripts": {
-    "clean": "rimraf ../dist/import-config",
-    "build": "npm rum clean && copyfiles -a -f ./deploy/*.json ../dist/import-config",
+    "clean": "rimraf ../../dist/import-config",
+    "build": "npm rum clean && copyfiles -a -f ./deploy/*.json ../../dist/import-config",
     "start": "json-server --port 7000 --watch ./imports.json"
   }
 }

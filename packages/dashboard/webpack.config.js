@@ -1,30 +1,24 @@
 const webpackMerge = require('webpack-merge');
-const singleSpaDefaults = require('webpack-config-single-spa-ts');
+const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 
 module.exports = webpackConfigEnv => {
   const defaultConfig = singleSpaDefaults({
     orgName: 'intermix',
-    projectName: 'styleguide',
+    projectName: 'dashboard',
     webpackConfigEnv,
-  });
+  })
 
-  return webpackMerge.smart(defaultConfig, {
+  const intermixExternals = {
+    externals: [/^@intermix\/?.*$/],
+  };
+
+  return webpackMerge.smart(defaultConfig,intermixExternals, {
     // modify the webpack config however you'd like to by adding to this object
     module: {
       rules: [
         {
-          test: /\.css$/i,
-          use: [
-            'style-loader',
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: [require('tailwindcss'), require('autoprefixer')],
-              },
-            },
-          ],
+          test: /\.css/,
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.scss$/,
@@ -46,7 +40,7 @@ module.exports = webpackConfigEnv => {
     },
     devServer: {
       ...defaultConfig.devServer,
-      port: 8001,
+      port: 8002,
     },
-  });
-};
+  })
+}
