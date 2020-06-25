@@ -9,7 +9,7 @@ const HeaderDesktop: React.FC<any> = () => {
       <div className="relative w-1/2 flex justify-end">
         <button
           onClick={() => setOpen(!open)}
-          className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-100 focus:border-gray-300 focus:outline-none"
+          className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-blue-400 focus:border-blue-300 focus:outline-none"
         >
           <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
         </button>
@@ -17,7 +17,7 @@ const HeaderDesktop: React.FC<any> = () => {
           <button className="h-full w-full fixed inset-0 cursor-default"></button>
         )}
         {open && (
-          <div className="absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16">
+          <div className="absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50">
             <a
               href="#"
               className="block px-4 py-2 account-link hover:text-white hover:bg-new-gray"

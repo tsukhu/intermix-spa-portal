@@ -8,7 +8,11 @@ module.exports = webpackConfigEnv => {
     webpackConfigEnv,
   });
 
-  return webpackMerge.smart(defaultConfig, {
+  const styleguideExternals = {
+    externals: [/^@fortawesome\/fontawesome-free\/?.*$/],
+  };
+
+  return webpackMerge.smart(defaultConfig, styleguideExternals, {
     // modify the webpack config however you'd like to by adding to this object
     module: {
       rules: [

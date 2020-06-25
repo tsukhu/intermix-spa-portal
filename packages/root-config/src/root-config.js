@@ -13,4 +13,16 @@ registerApplication(
   isActive.dashboard
 );
 
-start();
+// Hide or show app loader
+function configureLoadingEl(show) {
+  const htmlId = `single-spa-application:__MAIN-APP-LOADER__`;
+  let domElement = document.getElementById(htmlId);
+  domElement.style.display = show ? 'block' : 'none';
+}
+
+System.import('@intermix/styleguide').then(() => {
+  configureLoadingEl(false);
+  start();
+});
+
+

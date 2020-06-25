@@ -4,6 +4,7 @@ module.exports = {
     '../**/src/**/*.ejs',
     '../**/src/**/*.vue',
     '../**/src/**/*.tsx',
+    './src/**/*.ts',
   ],
   theme: {
     extend: {
