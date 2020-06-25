@@ -1,0 +1,28 @@
+// 404 Page
+
+$bgColor: #f7f7f7;
+$jaggedDistance: 32px;
+
+// boo
+$booSize: $jaggedDistance * 5;
+$booBg: $bgColor;
+$booShadow: darken($booBg, 5%);
+
+// face
+$booFaceSize: round($jaggedDistance / 1.3333);
+$booFaceColor: #9b9b9b;
+
+
+// Breakpoints
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;

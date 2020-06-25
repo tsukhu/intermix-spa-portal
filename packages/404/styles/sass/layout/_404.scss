@@ -1,0 +1,72 @@
+.container-404 {
+  color: $booFaceColor;
+  position: relative;
+  height: 100vh;
+}
+
+.boo-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: $jaggedDistance * 2;
+  padding-bottom: $jaggedDistance * 2;
+}
+
+.boo {
+  width: $booSize;
+  height: $booSize + ($booSize * 0.15);
+  background-color: $booBg;
+  margin-left: auto;
+  margin-right: auto;
+  border: (($jaggedDistance / 1.65) - ($jaggedDistance / 2)) solid $booFaceColor;
+  border-bottom: 0;
+  overflow: hidden;
+  border-radius: ($booSize / 2) ($booSize / 2) 0 0;
+  box-shadow: -($jaggedDistance / 2) 0 0 2px rgba($booShadow, 0.5) inset;
+  @include border-bottom-jagged($jaggedDistance, $bgColor);
+  animation: floating 3s ease-in-out infinite;
+
+  .face {
+    width: $booFaceSize;
+    height: $jaggedDistance / 10;
+    border-radius: 5px;
+    background-color: $booFaceColor;
+    position: absolute;
+    left: 50%;
+    bottom: $jaggedDistance + $booFaceSize;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: $booFaceSize / 4;
+      height: $booFaceSize / 4;
+      background-color: $booFaceColor;
+      border-radius: 50%;
+      position: absolute;
+      bottom: $jaggedDistance + ($booFaceSize / 3);
+    }
+
+    &::before {
+      left: -$booFaceSize;
+    }
+
+    &::after {
+      right: -$booFaceSize;
+    }
+  }
+}
+
+.shadow {
+  width: $booSize - $jaggedDistance;
+  height: $jaggedDistance / 2;
+  background-color: rgba($booShadow, 0.75);
+  margin-top: $jaggedDistance * 1.25;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+  animation: floatingShadow 3s ease-in-out infinite;
+}

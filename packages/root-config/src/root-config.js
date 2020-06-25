@@ -1,16 +1,23 @@
-import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
+import { registerApplication, start } from 'single-spa';
+import * as isActive from './activity-functions';
+
 
 registerApplication(
-  "@intermix/layout",
-  () => System.import("@intermix/layout"),
+  '@intermix/layout',
+  () => System.import('@intermix/layout'),
   isActive.layout
 );
 
 registerApplication(
-  "@intermix/dashboard",
-  () => System.import("@intermix/dashboard"),
+  '@intermix/dashboard',
+  () => System.import('@intermix/dashboard'),
   isActive.dashboard
+);
+
+registerApplication(
+  '@intermix/notfound',
+  () => System.import('@intermix/notfound'),
+  isActive.notFound
 );
 
 // Hide or show app loader
@@ -24,5 +31,3 @@ System.import('@intermix/styleguide').then(() => {
   configureLoadingEl(false);
   start();
 });
-
-

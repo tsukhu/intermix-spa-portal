@@ -13,3 +13,8 @@ export function layout(location) {
   // The navbar is always active
   return true;
 }
+
+export function notFound(location) {
+  // The navbar is always active
+  return !prefix(location, 'dashboard');
+}

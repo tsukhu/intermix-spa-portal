@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "webpack-dev-server",
-    "clean": "rimraf dist && rimraf ../../dist/dashboard",
-    "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/dashboard",
+    "clean": "rimraf dist && rimraf ../../dist/notfound",
+    "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/notfound",
     "build": "npm run clean && webpack --mode=production && npm run copy-for-deploy",
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src",
@@ -58,7 +58,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "name": "dashboard",
+  "name": "notfound",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Tarun Kumar Sukhu <tksukhu@gmail.com>",

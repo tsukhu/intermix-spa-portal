@@ -1,0 +1,57 @@
+// 404 Page
+@mixin border-bottom-jagged($size, $color-outer) {
+  position: relative;
+  padding-bottom: $size;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -($size / 1.7);
+    bottom: -($jaggedDistance / 3.85);
+    width: calc(100% + #{$size});
+    height: $size;
+    background-repeat: repeat-x;
+    background-size: $size $size;
+    background-position: left bottom;
+    background-image: linear-gradient(
+        -45deg,
+        $color-outer ($size / 2),
+        transparent 0
+      ),
+      linear-gradient(45deg, $color-outer ($size / 2), transparent 0),
+      linear-gradient(-45deg, $booFaceColor ($size / 1.7), transparent 0),
+      linear-gradient(45deg, $booFaceColor ($size / 1.7), transparent 0);
+  }
+}
+
+
+// Breakpoints
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}

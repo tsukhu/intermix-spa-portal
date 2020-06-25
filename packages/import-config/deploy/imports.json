@@ -8,6 +8,7 @@
     "@intermix/root-config": "https://intermix-spa.netlify.app/root-config/root-config.js",
     "@intermix/styleguide": "https://intermix-spa.netlify.app/styleguide/intermix-styleguide.js",
     "@intermix/dashboard": "https://intermix-spa.netlify.app/dashboard/intermix-dashboard.js",
+    "@intermix/notfound": "https://intermix-spa.netlify.app/notfound/intermix-notfound.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
   }

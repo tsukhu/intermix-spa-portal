@@ -9,6 +9,7 @@
       "@intermix/layout": "http://localhost:8000/intermix-layout.js",
       "@intermix/styleguide": "http://localhost:8001/intermix-styleguide.js",
       "@intermix/dashboard": "http://localhost:8002/intermix-dashboard.js",
+      "@intermix/notfound": "http://localhost:8003/intermix-notfound.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
     }

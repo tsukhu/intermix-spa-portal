@@ -4,7 +4,7 @@ const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 module.exports = webpackConfigEnv => {
   const defaultConfig = singleSpaDefaults({
     orgName: 'intermix',
-    projectName: 'dashboard',
+    projectName: 'notfound',
     webpackConfigEnv,
   });
 
@@ -40,7 +40,7 @@ module.exports = webpackConfigEnv => {
     },
     devServer: {
       ...defaultConfig.devServer,
-      port: 8002,
+      port: 8003,
     },
   });
 };
