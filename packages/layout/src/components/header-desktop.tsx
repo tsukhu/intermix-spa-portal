@@ -9,9 +9,10 @@ const HeaderDesktop: React.FC<any> = () => {
       <div className="relative w-1/2 flex justify-end">
         <button
           onClick={() => setOpen(!open)}
-          className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-blue-400 focus:border-blue-300 focus:outline-none"
+          className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-2 border-gray-400 hover:border-blue-400 focus:border-blue-300 focus:outline-none"
         >
-          <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" />
+        <img className="rounded-full" alt="A" src="https://randomuser.me/api/portraits/women/75.jpg"/>
+        <div className="bg-orange-500 rounded-full w-3 h-3 absolute bottom-0 right-0"></div>
         </button>
         {!open && (
           <button className="h-full w-full fixed inset-0 cursor-default"></button>
