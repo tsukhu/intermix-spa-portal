@@ -5,6 +5,10 @@ import {
   constructLayoutEngine,
 } from 'single-spa-layout';
 
+import { APP_KEYS } from './envConstants';
+// Remotely access layout configuration
+const REMOTE_LAYOUT = true;
+
 const data = {
   loaders: {
     appLoader: `<div class="showbox">
@@ -24,16 +28,38 @@ const data = {
   </div>`,
   },
 };
-const routes = constructRoutes(
-  document.querySelector('#single-spa-layout'),
-  data
-);
-const applications = constructApplications({
-  routes,
-  loadApp({ name }) {
-    return System.import(name);
-  },
-});
+
+const routesJSON = {
+  routes: [
+    {
+      type: 'route',
+      path: '/',
+      routes: [
+        { type: 'application', name: '@intermix/layout' },
+        {
+          type: 'route',
+          path: 'dashboard',
+          routes: [
+            {
+              type: 'application',
+              name: '@intermix/dashboard',
+              loader: data.loaders.appLoader,
+            },
+          ],
+        },
+        {
+          type: 'route',
+          routes: [{ type: 'application', name: '@intermix/notfound' }],
+          default: true,
+        },
+      ],
+    },
+  ],
+};
+
+const fetchRoutes = async () => {
+  return await (await fetch(APP_KEYS.routesApiUrl)).json();
+};
 
 // Hide or show app loader
 function configureLoadingEl(show) {
@@ -42,12 +68,40 @@ function configureLoadingEl(show) {
   domElement.style.display = show ? 'block' : 'none';
 }
 
-const layoutEngine = constructLayoutEngine({ routes, applications });
-applications.forEach(registerApplication);
-start();
+if (REMOTE_LAYOUT) {
+  fetchRoutes().then(result => {
+    const routes = constructRoutes(result);
+    const applications = constructApplications({
+      routes,
+      loadApp({ name }) {
+        return System.import(name);
+      },
+    });
 
-System.import('@intermix/styleguide').then(() => {
-  configureLoadingEl(false);
-  layoutEngine.activate();
-  start();
-});
+    const layoutEngine = constructLayoutEngine({ routes, applications });
+    applications.forEach(registerApplication);
+
+    System.import('@intermix/styleguide').then(() => {
+      configureLoadingEl(false);
+      layoutEngine.activate();
+      start();
+    });
+  });
+} else {
+  const routes = constructRoutes(routesJSON);
+  const applications = constructApplications({
+    routes,
+    loadApp({ name }) {
+      return System.import(name);
+    },
+  });
+
+  const layoutEngine = constructLayoutEngine({ routes, applications });
+  applications.forEach(registerApplication);
+
+  System.import('@intermix/styleguide').then(() => {
+    configureLoadingEl(false);
+    layoutEngine.activate();
+    start();
+  });
+}

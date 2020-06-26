@@ -2,7 +2,7 @@
   "imports": {
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
     "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
-    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.3/lib/system/single-spa.min.js",
     "@fortawesome/fontawesome-free": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.js",
     "@intermix/layout": "https://intermix-spa.netlify.app/layout/intermix-layout.js",
     "@intermix/root-config": "https://intermix-spa.netlify.app/root-config/root-config.js",

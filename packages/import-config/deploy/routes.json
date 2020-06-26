@@ -1,0 +1,27 @@
+{
+  "routes": [
+    {
+      "type": "route",
+      "path": "/",
+      "routes": [
+        { "type": "application", "name": "@intermix/layout" },
+        {
+          "type": "route",
+          "path": "dashboard",
+          "routes": [
+            {
+              "type": "application",
+              "name": "@intermix/dashboard",
+              "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
+            }
+          ]
+        },
+        {
+          "type": "route",
+          "routes": [{ "type": "application", "name": "@intermix/notfound" }],
+          "default": true
+        }
+      ]
+    }
+  ]
+}
