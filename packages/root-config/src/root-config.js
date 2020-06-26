@@ -1,24 +1,39 @@
 import { registerApplication, start } from 'single-spa';
-import * as isActive from './activity-functions';
+import {
+  constructApplications,
+  constructRoutes,
+  constructLayoutEngine,
+} from 'single-spa-layout';
 
-
-registerApplication(
-  '@intermix/layout',
-  () => System.import('@intermix/layout'),
-  isActive.layout
+const data = {
+  loaders: {
+    appLoader: `<div class="showbox">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle
+          class="path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+  </div>`,
+  },
+};
+const routes = constructRoutes(
+  document.querySelector('#single-spa-layout'),
+  data
 );
-
-registerApplication(
-  '@intermix/dashboard',
-  () => System.import('@intermix/dashboard'),
-  isActive.dashboard
-);
-
-registerApplication(
-  '@intermix/notfound',
-  () => System.import('@intermix/notfound'),
-  isActive.notFound
-);
+const applications = constructApplications({
+  routes,
+  loadApp({ name }) {
+    return System.import(name);
+  },
+});
 
 // Hide or show app loader
 function configureLoadingEl(show) {
@@ -27,7 +42,12 @@ function configureLoadingEl(show) {
   domElement.style.display = show ? 'block' : 'none';
 }
 
+const layoutEngine = constructLayoutEngine({ routes, applications });
+applications.forEach(registerApplication);
+start();
+
 System.import('@intermix/styleguide').then(() => {
   configureLoadingEl(false);
+  layoutEngine.activate();
   start();
 });

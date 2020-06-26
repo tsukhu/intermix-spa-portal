@@ -24,9 +24,10 @@ module.exports = {
     },
   },
   variants: {
+    accessibility: ['responsive', 'focus', 'active'],
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
     textColor: ['responsive', 'hover', 'focus', 'active'],
-    opacity: ['responsive', 'hover', 'focus', 'disabled'],
+    opacity: ['responsive', 'hover', 'focus', 'disabled', 'active'],
   },
   plugins: [],
 };

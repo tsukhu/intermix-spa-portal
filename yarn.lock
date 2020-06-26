@@ -8614,7 +8614,7 @@ single-spa-react@^2.10.4:
   resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-2.14.0.tgz#4a55ea74a57db06adb41f0de3419a0c378745e1b"
   integrity sha512-KQ2/y7/JBIquK0WUiwb1/Y7f4qTZITNotw+JwNPesj0WKeCi91u0LOZe2ps56QMJbyB4UrA5IzMBwbYWDr1pIw==
 
-single-spa@^5.3.4:
+single-spa@^5.5.3:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.5.3.tgz#17c092120c7faf39bd740f95900f132150e17eb1"
   integrity sha512-P+czr9i0814D4fH84IPcLq3hVxBD5dFaPF71V8bBsa9SrRv581FcS7CW/frpr9K53KMLKXsWb4z0O8zC+dtLfw==

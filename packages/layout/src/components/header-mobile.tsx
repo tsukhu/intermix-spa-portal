@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink} from 'react-router-dom';
 import { LogoSmallSVG } from './logo';
 
 const HeaderMobile: React.FC<any> = () => {
@@ -6,13 +7,13 @@ const HeaderMobile: React.FC<any> = () => {
   return (
     <header className="w-full side-bar py-5 px-6 sm:hidden z-50">
       <div className="flex items-center justify-between">
-        <a
-          href="index.html"
+        <NavLink
+          to="/"
           className="flex text-white text-2xl font-semibold sentence hover:text-gray-300"
         >
           <LogoSmallSVG />
           Intermix
-        </a>
+        </NavLink>
         {!open && (
           <button
             onClick={() => setOpen(!open)}
@@ -33,69 +34,69 @@ const HeaderMobile: React.FC<any> = () => {
 
       {open && (
         <nav className="flex flex-col pt-4 ">
-          <a
-            href="index.html"
-            className="flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          <NavLink
+            to="/dashboard"
+            className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-tachometer-alt mr-3"></i>
             Dashboard
-          </a>
-          <a
-            href="blank.html"
-            className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          </NavLink>
+          <NavLink
+            to="/blank"
+            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-sticky-note mr-3"></i>
             Blank Page
-          </a>
-          <a
-            href="tables.html"
-            className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          </NavLink>
+          <NavLink
+            to="/tables"
+            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-table mr-3"></i>
             Tables
-          </a>
-          <a
-            href="forms.html"
-            className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          </NavLink>
+          <NavLink
+            to="/forms"
+            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-align-left mr-3"></i>
             Forms
-          </a>
-          <a
-            href="tabs.html"
-            className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          </NavLink>
+          <NavLink
+            to="/tabs"
+            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-tablet-alt mr-3"></i>
             Tabbed Content
-          </a>
-          <a
-            href="calendar.html"
-            className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+          </NavLink>
+          <NavLink
+            to="/calendar"
+            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-calendar mr-3"></i>
             Calendar
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-cogs mr-3"></i>
             Support
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-user mr-3"></i>
             My Account
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-sign-out-alt mr-3"></i>
             Sign Out
-          </a>
+          </NavLink>
         </nav>
       )}
     </header>
