@@ -79,7 +79,16 @@ if (REMOTE_LAYOUT) {
     });
 
     const layoutEngine = constructLayoutEngine({ routes, applications });
-    applications.forEach(registerApplication);
+
+    applications.forEach(app => {
+      registerApplication({
+        ...app,
+        customProps: (name, location) => ({
+          ...app.customProps(name, location),
+          jwttoken: 'test',
+        }),
+      });
+    });
 
     System.import('@intermix/styleguide').then(() => {
       configureLoadingEl(false);
