@@ -11,6 +11,8 @@
   "scripts": {
     "clean": "rimraf ../../dist/import-config",
     "build": "npm rum clean && copyfiles -a -f ./deploy/*.json ../../dist/import-config",
-    "start": "json-server --port 7000 --watch ./imports.json"
+    "start": "echo use start:all or specific app start like start:dashboard",
+    "start:all": "json-server --port 7000 --watch ./imports.json",
+    "start:dashboard": "json-server --port 7000 --watch ./dashboard/imports.json"
   }
 }

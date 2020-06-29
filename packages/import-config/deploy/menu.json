@@ -7,8 +7,8 @@
         "iconClasses": "fas fa-tachometer-alt"
       },
       {
-        "path": "blank",
-        "title": "Blank Page",
+        "path": "reports",
+        "title": "Reports",
         "iconClasses": "fas fa-sticky-note"
       },
       {

@@ -18,6 +18,14 @@ yarn
 yarn start
 ```
 
+- Now start the local import config server and the APIs for routes and menu
+- Use `start:all` for all the routes to be loaded otherwise use the specific start task for the app being tested
+- For example `start:dashboard` for only loading the `dashboard` app
+
+```
+yarn start:all
+```
+
 ## Production Build
 
 ```
