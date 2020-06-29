@@ -6,7 +6,7 @@
     "start": "ng serve",
     "clean": "rimraf dist && rimraf ../../dist/calendar",
     "copy-for-deploy": "copyfiles -a -f ./dist/calendar/* ../../dist/calendar",
-    "build": "npm run clean && ng build && npm run copy-for-deploy",
+    "build": "npm run clean && ng build --prod --output-hashing none && npm run copy-for-deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
