@@ -48,6 +48,7 @@ module.exports = env => ({
     new webpack.DefinePlugin({
       __IMPORT_CONFIG_URL__: JSON.stringify(`${process.env.IMPORT_CONFIG_URL}`),
       __ROUTES_API_URL__: JSON.stringify(`${process.env.ROUTES_API_URL}`),
+      __MENU_API_URL__: JSON.stringify(`${process.env.MENU_API_URL}`),
     }),
   ],
   externals: ['single-spa', /^@intermix\/.+$/],

@@ -1,0 +1,36 @@
+{
+  "menu": {
+    "items": [
+      {
+        "path": "dashboard",
+        "title": "Dashboard",
+        "iconClasses": "fas fa-tachometer-alt"
+      },
+      {
+        "path": "blank",
+        "title": "Blank Page",
+        "iconClasses": "fas fa-sticky-note"
+      },
+      {
+        "path": "tables",
+        "title": "Tables",
+        "iconClasses": "fas fa-table"
+      },
+      {
+        "path": "forms",
+        "title": "Forms",
+        "iconClasses": "fas fa-align-left"
+      },
+      {
+        "path": "tabs",
+        "title": "Tabbed Content",
+        "iconClasses": "fas fa-tablet-alt"
+      },
+      {
+        "path": "calender",
+        "title": "Calender",
+        "iconClasses": "fas fa-calendar"
+      }
+    ]
+  }
+}

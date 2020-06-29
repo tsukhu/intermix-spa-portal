@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { LogoSmallSVG } from './logo';
 
-const HeaderMobile: React.FC<any> = () => {
+const HeaderMobile: React.FC<any> = ({ menu }) => {
   const [open, setOpen] = React.useState(false);
   return (
     <header className="w-full side-bar py-5 px-6 sm:hidden z-50">
@@ -34,48 +34,18 @@ const HeaderMobile: React.FC<any> = () => {
 
       {open && (
         <nav className="flex flex-col pt-4 ">
-          <NavLink
-            to="/dashboard"
-            className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-tachometer-alt mr-3"></i>
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/blank"
-            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-sticky-note mr-3"></i>
-            Blank Page
-          </NavLink>
-          <NavLink
-            to="/tables"
-            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-table mr-3"></i>
-            Tables
-          </NavLink>
-          <NavLink
-            to="/forms"
-            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-align-left mr-3"></i>
-            Forms
-          </NavLink>
-          <NavLink
-            to="/tabs"
-            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-tablet-alt mr-3"></i>
-            Tabbed Content
-          </NavLink>
-          <NavLink
-            to="/calendar"
-            className="menu-item flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-          >
-            <i className="fas fa-calendar mr-3"></i>
-            Calendar
-          </NavLink>
+          {menu.items.map(item => {
+            return (
+              <NavLink
+                to={item.path}
+                key={item.title}
+                className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+              >
+                <i className={`${item.iconClasses} mr-3`}></i>
+                {item.title}
+              </NavLink>
+            );
+          })}
           <NavLink
             to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"

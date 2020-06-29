@@ -9,6 +9,7 @@
     "@intermix/styleguide": "https://intermix-spa.netlify.app/styleguide/intermix-styleguide.js",
     "@intermix/dashboard": "https://intermix-spa.netlify.app/dashboard/intermix-dashboard.js",
     "@intermix/notfound": "https://intermix-spa.netlify.app/notfound/intermix-notfound.js",
+    "@intermix/store": "https://intermix-spa.netlify.app/store/intermix-store.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
   }

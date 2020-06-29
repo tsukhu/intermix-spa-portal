@@ -9,7 +9,7 @@ module.exports = webpackConfigEnv => {
   });
 
   const intermixExternals = {
-    externals: [/^@intermix\/?.*$/],
+    externals: [/^@intermix\/.+$/],
   };
 
   return webpackMerge.smart(defaultConfig, intermixExternals, {
