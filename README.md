@@ -23,8 +23,15 @@ yarn start
 - For example `start:dashboard` for only loading the `dashboard` app
 
 ```
-yarn start:all
+yarn workspace import-config start:all
 ```
+
+- For example `start:dashboard` for only loading the `dashboard` app
+
+```
+yarn workspace import-config start:dashboard
+```
+
 
 ## Production Build
 
