@@ -27,8 +27,8 @@
         "iconClasses": "fas fa-tablet-alt"
       },
       {
-        "path": "calender",
-        "title": "Calender",
+        "path": "calendar",
+        "title": "Calendar",
         "iconClasses": "fas fa-calendar"
       }
     ]

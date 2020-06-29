@@ -11,6 +11,7 @@
     "@intermix/notfound": "https://intermix-spa.netlify.app/notfound/intermix-notfound.js",
     "@intermix/store": "https://intermix-spa.netlify.app/store/intermix-store.js",
     "@intermix/reports": "https://intermix-spa.netlify.app/reports/intermix-reports.js",
+    "@intermix/calendar": "https://intermix-spa.netlify.app/calendar/main.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
   }

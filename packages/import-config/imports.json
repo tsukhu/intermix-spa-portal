@@ -12,6 +12,7 @@
       "@intermix/notfound": "http://localhost:8003/intermix-notfound.js",
       "@intermix/store": "http://localhost:8004/intermix-store.js",
       "@intermix/reports": "http://localhost:8005/intermix-reports.js",
+      "@intermix/calendar": "http://localhost:4200/main.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
     }
@@ -45,8 +46,8 @@
           "iconClasses": "fas fa-tablet-alt"
         },
         {
-          "path": "calender",
-          "title": "Calender",
+          "path": "calendar",
+          "title": "Calendar",
           "iconClasses": "fas fa-calendar"
         }
       ]
@@ -82,6 +83,20 @@
                 "name": "@intermix/reports",
                 "props": {
                   "title": "Reports"
+                },
+                "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
+              }
+            ]
+          },
+          {
+            "type": "route",
+            "path": "calendar",
+            "routes": [
+              {
+                "type": "application",
+                "name": "@intermix/calendar",
+                "props": {
+                  "title": "Calendar"
                 },
                 "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
               }
