@@ -5,11 +5,12 @@ module.exports = (angularWebpackConfig, options) => {
 
   singleSpaWebpackConfig.externals = [
     Object.assign({}, singleSpaWebpackConfig.externals, {
-      "@intermix/store": "@intermix/store"
+      "@intermix/store": "@intermix/store",
+      "rxjs": "rxjs"
     }),
   ];
 
-  console.log(singleSpaWebpackConfig.externals);
+  // console.log(singleSpaWebpackConfig.externals);
   // Feel free to modify this webpack config however you'd like to
   return singleSpaWebpackConfig
 }

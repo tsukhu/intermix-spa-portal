@@ -1,9 +1,8 @@
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import IntermixStoreConfig from './intermix-store-config';
 
 // Declare the subject
-const intermixSubject = new Subject();
-
+const intermixSubject = new BehaviorSubject({});
 const initialState: IntermixStoreConfig = {
   menu: { items: [] },
 };
@@ -17,12 +16,12 @@ const IntermixGlobalStore = {
     intermixSubject.next(intermixState);
   },
   subscribe: setState => intermixSubject.subscribe(setState),
+  observable: intermixSubject.asObservable(),
   addMenuItem: item => {
     intermixState = {
       ...intermixState,
       menu: { items: [...intermixState.menu.items, item] },
     };
-    console.log(intermixState);
     intermixSubject.next(intermixState);
   },
   deleteMenuItem: path => {
