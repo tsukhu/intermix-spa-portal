@@ -3,7 +3,6 @@ import {
   singleSpaPropsSubject,
   SingleSpaProps
 } from 'src/single-spa/single-spa-props';
-import { Observable, Subject, observable } from 'rxjs';
 import { getGlobalStore } from '@intermix/store';
 
 @Component({
@@ -17,9 +16,12 @@ export class AppComponent implements OnInit {
   menu: any;
 
   constructor() {
-    this.menu = getGlobalStore().observable;
-   // getGlobalStore().subscribe(data => this.menu =  Object.assign({},data));
+    // getGlobalStore().subscribe(data => this.menu =  Object.assign({},data));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //    this.menu = getGlobalStore().observable;
+    // TODO : The global store is initialized a bit later in the layout
+    setTimeout(() => (this.menu = getGlobalStore().observable), 500);
+  }
 }
