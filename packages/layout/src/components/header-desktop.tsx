@@ -1,11 +1,12 @@
 import React from "react";
-import { SearchBox } from "./search-box";
+import SearchBox from "./search-box";
+import LanguageSelector from "./language-selector";
 
 const HeaderDesktop: React.FC<any> = () => {
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
   return (
-    <header className="w-full flex items-center bg-white py-2 px-6 pb-1 hidden sm:flex sm:shadow-md">
+    <header className="w-full items-center bg-white py-2 px-6 pb-1 hidden sm:flex sm:shadow-md">
       <div className="w-2/4 justify-end align-middle text-center items-center z-50">
         <SearchBox
           searchText={null}
@@ -15,6 +16,7 @@ const HeaderDesktop: React.FC<any> = () => {
       </div>
 
       <div className="w-2/4 flex justify-end">
+        <LanguageSelector />
         <div className="relative mr-2 z-50">
           <button
             onClick={() => {
@@ -24,7 +26,10 @@ const HeaderDesktop: React.FC<any> = () => {
             className="z-10 w-12 h-12  text-2xl mr-1text-gray-800 rounded-full overflow-hidden focus:outline-none"
           >
             <i className="fas fa-bell"></i>
-            <div className="bg-orange-500 rounded-full w-3 h-3 absolute bottom-0 right-0"></div>
+            <div
+              className="bg-orange-500 rounded-full w-3 h-3 absolute"
+              style={{ bottom: ".3rem", right: ".25rem" }}
+            ></div>
           </button>
         </div>
         <div className="relative z-50">

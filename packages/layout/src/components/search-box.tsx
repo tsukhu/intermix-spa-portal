@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 export interface SearchBoxProps {
   searchText: string;
@@ -6,10 +6,10 @@ export interface SearchBoxProps {
   onSearchSubmit: (ev) => any;
 }
 
-export const SearchBox: React.FC<SearchBoxProps> = ({
+const SearchBox: React.FC<SearchBoxProps> = ({
   searchText,
   onSearchSubmit,
-  onSearchTextChange
+  onSearchTextChange,
 }) => {
   return (
     <div className="flex flex-1 justify-center md:justify-start text-white px-2">
@@ -18,13 +18,13 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
           <input
             type="search"
             placeholder="Search"
-            className="w-full bg-gray-800 text-sm text-white transition border border-transparent focus:outline-none focus:border-gray-700 rounded py-1 px-2 pl-10 appearance-none leading-normal"
+            className="w-full bg-gray-800 text-sm text-white transition border border-transparent focus:outline-none focus:border-gray-700 rounded py-2 px-2 pl-10 appearance-none leading-normal"
             onChange={onSearchTextChange}
             value={searchText}
           />
           <div
             className="absolute search-icon"
-            style={{ top: ".5rem", left: ".8rem" }}
+            style={{ top: ".75rem", left: ".8rem" }}
           >
             <svg
               className="fill-current pointer-events-none text-white w-4 h-4"
@@ -39,3 +39,5 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
     </div>
   );
 };
+
+export default SearchBox;
