@@ -1,12 +1,18 @@
 import React from "react";
 
-const LanguageSelector = () => {
+export interface LanguageSelectorProps {
+  currentLanguage: string;
+  onLanguageChange: () => any;
+}
+
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({currentLanguage,onLanguageChange}) => {
   return (
     <div className="relative z-50 text-center align-middle mt-2 rounded">
       <select
         className="block appearance-none text-sm text-white w-full bg-gray-800 border border-gray-200  pt-2 pb-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-900 focus:text-gray-100 text-center align-middle"
         id="grid-state"
-        defaultValue={"en"}
+        defaultValue={currentLanguage}
+        onChange={onLanguageChange}
       >
         <option value="en">en</option>
         <option value="fr">fr</option>

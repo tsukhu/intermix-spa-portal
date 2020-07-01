@@ -16,7 +16,7 @@ const HeaderDesktop: React.FC<any> = () => {
       </div>
 
       <div className="w-2/4 flex justify-end">
-        <LanguageSelector />
+        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => console.log(e.target.value)}/>
         <div className="relative mr-2 z-50">
           <button
             onClick={() => {
