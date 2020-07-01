@@ -3,7 +3,7 @@ import React from 'react';
 const HeaderDesktop: React.FC<any> = () => {
   const [open, setOpen] = React.useState(false);
   return (
-    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex">
+    <header className="w-full flex items-center bg-white py-2 px-6 pb-1 hidden sm:flex sm:shadow-md">
       <div className="w-1/2"></div>
 
       <div className="relative w-1/2 flex justify-end">

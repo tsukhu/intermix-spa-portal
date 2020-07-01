@@ -5,7 +5,7 @@ import { LogoSmallSVG } from './logo';
 const SideBar: React.FC<any> = ({ menu }) => {
   return (
     <aside className="relative bg-new-gray h-screen w-64 hidden sm:block shadow-xl side-bar z-50">
-      <div className="p-6 text-center align-center">
+      <div className="p-4 text-center align-center">
         <NavLink
           to="/"
           className="text-white  text-2xl font-semibold sentance hover:text-gray-300 inline-flex"

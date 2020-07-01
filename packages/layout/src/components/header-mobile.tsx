@@ -5,7 +5,7 @@ import { LogoSmallSVG } from './logo';
 const HeaderMobile: React.FC<any> = ({ menu }) => {
   const [open, setOpen] = React.useState(false);
   return (
-    <header className="w-full side-bar py-5 px-6 sm:hidden z-50">
+    <header className="w-full side-bar py-2 px-6 sm:hidden z-50">
       <div className="flex items-center justify-between">
         <NavLink
           to="/"
