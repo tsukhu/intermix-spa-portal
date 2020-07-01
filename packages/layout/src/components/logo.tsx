@@ -23,7 +23,7 @@ export const LogoSmallSVG = () => {
       version="1"
       height="2rem"
       viewBox="0 0 200 149"
-      className="fill-current w-auto"
+      className="fill-current w-10 h-10"
     >
       <rect
         width="100%"

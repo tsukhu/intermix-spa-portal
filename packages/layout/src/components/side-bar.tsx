@@ -8,7 +8,7 @@ const SideBar: React.FC<any> = ({ menu }) => {
       <div className="p-6 text-center align-center">
         <NavLink
           to="/"
-          className="text-white  text-3xl font-semibold sentance hover:text-gray-300 inline-flex"
+          className="text-white  text-2xl font-semibold sentance hover:text-gray-300 inline-flex"
         >
           <LogoSmallSVG />
           Intermix
