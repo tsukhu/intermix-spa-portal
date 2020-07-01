@@ -14,7 +14,9 @@
       "@intermix/reports": "http://localhost:8005/intermix-reports.js",
       "@intermix/calendar": "http://localhost:4200/main.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
-      "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
+      "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
+      "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
+      "react-i18next": "https://cdn.jsdelivr.net/npm/react-i18next@11.7.0/dist/umd/react-i18next.min.js"
     }
   },
   "menu-config": {

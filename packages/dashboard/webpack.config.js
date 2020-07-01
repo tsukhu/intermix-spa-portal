@@ -1,15 +1,15 @@
-const webpackMerge = require('webpack-merge');
-const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
+const webpackMerge = require("webpack-merge");
+const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 
-module.exports = webpackConfigEnv => {
+module.exports = (webpackConfigEnv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: 'intermix',
-    projectName: 'dashboard',
+    orgName: "intermix",
+    projectName: "dashboard",
     webpackConfigEnv,
   });
 
   const intermixExternals = {
-    externals: [/^@intermix\/.+$/],
+    externals: [/^@intermix\/.+$/, "react-i18next"],
   };
 
   return webpackMerge.smart(defaultConfig, intermixExternals, {
@@ -18,20 +18,20 @@ module.exports = webpackConfigEnv => {
       rules: [
         {
           test: /\.css/,
-          use: ['style-loader', 'css-loader'],
+          use: ["style-loader", "css-loader"],
         },
         {
           test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
           test: /\.(woff(2)?|ttf|eot|svg|jpg|png)(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
-              loader: 'file-loader',
+              loader: "file-loader",
               options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/',
+                name: "[name].[ext]",
+                outputPath: "fonts/",
               },
             },
           ],

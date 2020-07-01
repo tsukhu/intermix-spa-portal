@@ -51,5 +51,5 @@ module.exports = env => ({
       __MENU_API_URL__: JSON.stringify(`${process.env.MENU_API_URL}`),
     }),
   ],
-  externals: ['single-spa', /^@intermix\/.+$/],
+  externals: ['single-spa', /^@intermix\/.+$/,'i18next','react-i18next'],
 });
