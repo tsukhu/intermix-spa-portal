@@ -47,7 +47,7 @@ const HeaderDesktop: React.FC<any> = () => {
             <img
               className="rounded-full"
               alt="A"
-              src="https://randomuser.me/api/portraits/women/75.jpg"
+              src="https://i.pravatar.cc/64"
             />
           </button>
         </div>
