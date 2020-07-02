@@ -45,18 +45,21 @@ const Root = (props) => {
 
   return (
     <BrowserRouter basename="/">
-      <div className="w-full flex h-screen overflow-y-hidden">
-        <SideBar menu={globalStore.menu} />
-        <div className="w-full flex flex-col h-screen overflow-y-hidden">
-          <HeaderDesktop />
-          <HeaderMobile menu={globalStore.menu} />
-        </div>
-      </div>
       {!loggedIn && <LoginForm onSuccess={() => setLoggedIn(true)} />}
       {loggedIn && (
-        <Route exact path="/">
-          <Redirect to="/dashboard" />
-        </Route>
+        <>
+          <div className="w-full flex h-screen overflow-y-hidden">
+            <SideBar menu={globalStore.menu} />
+            <div className="w-full flex flex-col h-screen overflow-y-hidden">
+              <HeaderDesktop />
+              <HeaderMobile menu={globalStore.menu} />
+            </div>
+          </div>
+
+          <Route exact path="/">
+            <Redirect to="/dashboard" />
+          </Route>
+        </>
       )}
     </BrowserRouter>
   );
