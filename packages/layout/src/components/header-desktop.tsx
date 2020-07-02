@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBox from "./search-box";
 import LanguageSelector from "./language-selector";
+import {changeLanguage} from "@intermix/i18n";
 
 const HeaderDesktop: React.FC<any> = () => {
   const [open, setOpen] = React.useState(false);
@@ -16,7 +17,7 @@ const HeaderDesktop: React.FC<any> = () => {
       </div>
 
       <div className="w-2/4 flex justify-end">
-        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => console.log(e.target.value)}/>
+        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => changeLanguage(e.target.value)}/>
         <div className="relative mr-2 z-50">
           <button
             onClick={() => {

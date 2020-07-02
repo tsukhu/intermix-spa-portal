@@ -10,8 +10,13 @@
       "@intermix/styleguide": "http://localhost:8001/intermix-styleguide.js",
       "@intermix/dashboard": "http://localhost:8002/intermix-dashboard.js",
       "@intermix/notfound": "http://localhost:8003/intermix-notfound.js",
+      "@intermix/store": "http://localhost:8004/intermix-store.js",
+      "@intermix/i18n": "http://localhost:8006/intermix-i18n.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
-      "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
+      "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
+      "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
+      "react-i18next": "https://cdn.jsdelivr.net/npm/react-i18next@11.7.0/dist/umd/react-i18next.min.js",
+      "angular-i18next": "https://cdn.jsdelivr.net/npm/angular-i18next@9.0.1/bundles/angular-i18next.umd.js"
     }
   },
   "menu-config": {

@@ -11,8 +11,12 @@
     "@intermix/notfound": "https://intermix-spa.netlify.app/notfound/intermix-notfound.js",
     "@intermix/store": "https://intermix-spa.netlify.app/store/intermix-store.js",
     "@intermix/reports": "https://intermix-spa.netlify.app/reports/intermix-reports.js",
+    "@intermix/i18n": "https://intermix-spa.netlify.app/i18n/intermix-i18n.js",
     "@intermix/calendar": "https://intermix-spa.netlify.app/calendar/main.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
-    "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
+    "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
+    "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
+    "react-i18next": "https://cdn.jsdelivr.net/npm/react-i18next@11.7.0/dist/umd/react-i18next.min.js",
+    "angular-i18next": "https://cdn.jsdelivr.net/npm/angular-i18next@9.0.1/bundles/angular-i18next.umd.js"
   }
 }
