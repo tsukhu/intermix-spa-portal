@@ -1,9 +1,11 @@
 import React from "react";
 import SearchBox from "./search-box";
 import LanguageSelector from "./language-selector";
+import { useTranslation } from "react-i18next";
 import {changeLanguage} from "@intermix/i18n";
 
 const HeaderDesktop: React.FC<any> = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
   return (
@@ -11,6 +13,7 @@ const HeaderDesktop: React.FC<any> = () => {
       <div className="w-2/4 justify-end align-middle text-center items-center z-50">
         <SearchBox
           searchText={null}
+          searchPlaceholder={t('Search')}
           onSearchTextChange={(text) => console.log(text)}
           onSearchSubmit={() => console.log("Add Search handler")}
         />
@@ -129,21 +132,21 @@ const HeaderDesktop: React.FC<any> = () => {
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
               <i className="fas fa-user mr-3"></i>
-              Account
+              {t('Account')}
             </a>
             <div class="border-t border-gray-100"></div>
             <a
               href="#"
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
-              <i className="fas fa-cogs mr-3"></i>Support
+              <i className="fas fa-cogs mr-3"></i>{t('Support')}
             </a>
             <a
               href="#"
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
               <i className="fas fa-sign-out-alt mr-3"></i>
-              Sign Out
+              {t('Sign Out')}
             </a>
           </div>
         )}

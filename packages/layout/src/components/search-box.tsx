@@ -1,12 +1,14 @@
 import React from "react";
 
 export interface SearchBoxProps {
+  searchPlaceholder: string;
   searchText: string;
   onSearchTextChange: (value) => any;
   onSearchSubmit: (ev) => any;
 }
 
 const SearchBox: React.FC<SearchBoxProps> = ({
+  searchPlaceholder,
   searchText,
   onSearchSubmit,
   onSearchTextChange,
@@ -17,7 +19,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         <form onSubmit={onSearchSubmit}>
           <input
             type="search"
-            placeholder="Search"
+            placeholder={searchPlaceholder}
             className="w-full bg-gray-800 text-sm text-white transition border border-transparent focus:outline-none focus:border-gray-700 rounded py-2 px-2 pl-10 appearance-none leading-normal"
             onChange={onSearchTextChange}
             value={searchText}

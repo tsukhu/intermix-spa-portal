@@ -1,8 +1,10 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { LogoSmallSVG } from './logo';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { LogoSmallSVG } from "./logo";
+import { useTranslation } from "react-i18next";
 
 const HeaderMobile: React.FC<any> = ({ menu }) => {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   return (
     <header className="w-full side-bar py-2 px-6 sm:hidden z-50">
@@ -34,7 +36,7 @@ const HeaderMobile: React.FC<any> = ({ menu }) => {
 
       {open && (
         <nav className="flex flex-col pt-4 ">
-          {menu.items.map(item => {
+          {menu.items.map((item) => {
             return (
               <NavLink
                 to={item.path}
@@ -42,7 +44,7 @@ const HeaderMobile: React.FC<any> = ({ menu }) => {
                 className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
               >
                 <i className={`${item.iconClasses} mr-3`}></i>
-                {item.title}
+                {t(`${item.title}`)}
               </NavLink>
             );
           })}
@@ -51,21 +53,21 @@ const HeaderMobile: React.FC<any> = ({ menu }) => {
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-cogs mr-3"></i>
-            Support
+            {t('Support')}
           </NavLink>
           <NavLink
             to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-user mr-3"></i>
-            My Account
+            {t('Account')}
           </NavLink>
           <NavLink
             to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-sign-out-alt mr-3"></i>
-            Sign Out
+            {t('Sign Out')}
           </NavLink>
         </nav>
       )}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import { LogoSmallSVG } from './logo';
 
 const SideBar: React.FC<any> = ({ menu }) => {
+  const { t } = useTranslation();
   return (
     <aside className="relative bg-new-gray h-screen w-64 hidden sm:block shadow-xl side-bar z-50">
       <div className="p-4 text-center align-center">
@@ -23,7 +25,7 @@ const SideBar: React.FC<any> = ({ menu }) => {
               className="menu-item flex items-center text-white py-4 pl-6 active:text-new-gray-darker active:bg-ocean-light hover:bg-ocean-light hover:text-new-gray-darker hover:opacity-75"
             >
               <i className={`${item.iconClasses} mr-3`}></i>
-              {item.title}
+              {t(`${item.title}`)}
             </NavLink>
           );
         })}
