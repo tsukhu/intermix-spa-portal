@@ -9,7 +9,7 @@ const Root: React.FC<any> = (props) => {
     globalStore.subscribe(setGlobalStore);
   }, []);
   return (
-    <section className="inset-0 mt-20 sm:mt-16 sm:ml-56 absolute">
+    <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-56 absolute">
       <div className="px-4 py-6 sm:px-0 h-full w-full justify-center border-4 border-dashed border-gray-200 rounded-lg h-96">
         <div
           className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 m-2 mx-12 rounded"

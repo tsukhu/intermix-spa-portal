@@ -55,7 +55,7 @@ const HeaderDesktop: React.FC<any> = () => {
           <button className="h-full w-full fixed inset-0 cursor-default"></button>
         )}
         {openAlerts && (
-          <div className="absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50">
+          <div className="animate__animated animate__fadeIn absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50">
             <div class="py-1">
               <a
                 href="#"
@@ -126,7 +126,7 @@ const HeaderDesktop: React.FC<any> = () => {
           </div>
         )}
         {open && (
-          <div className="absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50 text-sm">
+          <div className="animate__animated animate__fadeIn absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50 text-sm">
             <a
               href="#"
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
