@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import {changeLanguage} from "@intermix/i18n";
 
 const HeaderDesktop: React.FC<any> = ({onLogout}) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
   return (
@@ -20,7 +20,7 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
       </div>
 
       <div className="w-2/4 flex justify-end">
-        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => changeLanguage(e.target.value)}/>
+        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => i18n.changeLanguage(e.target.value)}/>
         <div className="relative mr-2 z-50">
           <button
             onClick={() => {
