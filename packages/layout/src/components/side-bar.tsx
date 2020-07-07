@@ -1,8 +1,10 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { LogoSmallSVG } from './logo';
+import { getGlobalStore } from "@intermix/store";
+import { LogoSmallSVG } from "./logo";
 
+const store = getGlobalStore();
 const SideBar: React.FC<any> = ({ menu }) => {
   const { t } = useTranslation();
   return (
@@ -17,18 +19,20 @@ const SideBar: React.FC<any> = ({ menu }) => {
         </NavLink>
       </div>
       <nav className="text-white text-base font-semibold pt-3">
-        {menu.items.map(item => {
-          return (
-            <NavLink
-              to={item.path}
-              key={item.title}
-              className="menu-item flex items-center text-white py-4 pl-6 active:text-new-gray-darker active:bg-ocean-light hover:bg-ocean-light hover:text-new-gray-darker hover:opacity-75"
-            >
-              <i className={`${item.iconClasses} mr-3`}></i>
-              {t(`${item.title}`)}
-            </NavLink>
-          );
-        })}
+        {menu.items
+          .filter((m) => store.hasPermission(m.path))
+          .map((item) => {
+            return (
+              <NavLink
+                to={item.path}
+                key={item.title}
+                className="menu-item flex items-center text-white py-4 pl-6 active:text-new-gray-darker active:bg-ocean-light hover:bg-ocean-light hover:text-new-gray-darker hover:opacity-75"
+              >
+                <i className={`${item.iconClasses} mr-3`}></i>
+                {t(`${item.title}`)}
+              </NavLink>
+            );
+          })}
       </nav>
     </aside>
   );

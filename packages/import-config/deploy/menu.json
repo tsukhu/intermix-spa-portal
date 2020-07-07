@@ -9,7 +9,8 @@
       {
         "path": "reports",
         "title": "Reports",
-        "iconClasses": "fas fa-sticky-note"
+        "iconClasses": "fas fa-sticky-note",
+        "roles": ["Admin"]
       },
       {
         "path": "tables",

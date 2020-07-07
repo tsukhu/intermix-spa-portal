@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.menu = getGlobalStore().observable;
+    // this.menu = getGlobalStore().getSubscription();
     // TODO : The global store is initialized a bit later in the layout
-  //  setTimeout(() => (this.menu = getGlobalStore().observable), 500);
+    setTimeout(() => (this.menu = getGlobalStore().getSubscription()), 500);
   }
 }

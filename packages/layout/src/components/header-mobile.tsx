@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { getGlobalStore } from "@intermix/store";
 import { LogoSmallSVG } from "./logo";
 import { useTranslation } from "react-i18next";
-
-const HeaderMobile: React.FC<any> = ({ menu }) => {
+const store = getGlobalStore();
+const HeaderMobile: React.FC<any> = ({ menu, onLogout }) => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   return (
@@ -36,39 +37,41 @@ const HeaderMobile: React.FC<any> = ({ menu }) => {
 
       {open && (
         <nav className="flex flex-col pt-4 ">
-          {menu.items.map((item) => {
-            return (
-              <NavLink
-                to={item.path}
-                key={item.title}
-                className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
-              >
-                <i className={`${item.iconClasses} mr-3`}></i>
-                {t(`${item.title}`)}
-              </NavLink>
-            );
-          })}
+          {menu.items
+            .filter((m) => store.hasPermission(m.path))
+            .map((item) => {
+              return (
+                <NavLink
+                  to={item.path}
+                  key={item.title}
+                  className="menu-item flex items-center text-white hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
+                >
+                  <i className={`${item.iconClasses} mr-3`}></i>
+                  {t(`${item.title}`)}
+                </NavLink>
+              );
+            })}
           <NavLink
             to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-cogs mr-3"></i>
-            {t('Support')}
+            {t("Support")}
           </NavLink>
           <NavLink
             to="#"
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-user mr-3"></i>
-            {t('Account')}
+            {t("Account")}
           </NavLink>
-          <NavLink
-            to="#"
+          <a
+            onClick={onLogout}
             className="flex items-center text-white opacity-75 hover:bg-ocean-light hover:text-new-gray-darker active:text-new-gray-darker active:bg-ocean-light py-2 pl-4 nav-item"
           >
             <i className="fas fa-sign-out-alt mr-3"></i>
-            {t('Sign Out')}
-          </NavLink>
+            {t("Sign Out")}
+          </a>
         </nav>
       )}
     </header>

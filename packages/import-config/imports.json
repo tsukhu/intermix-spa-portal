@@ -32,7 +32,8 @@
         {
           "path": "reports",
           "title": "Reports",
-          "iconClasses": "fas fa-sticky-note"
+          "iconClasses": "fas fa-sticky-note",
+          "roles": ["Admin"]
         },
         {
           "path": "tables",
@@ -72,7 +73,8 @@
                 "type": "application",
                 "name": "@intermix/dashboard",
                 "props": {
-                  "title": "Dashboard"
+                  "title": "Dashboard",
+                  "path" : "dashboard"
                 },
                 "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
               }
@@ -86,7 +88,8 @@
                 "type": "application",
                 "name": "@intermix/reports",
                 "props": {
-                  "title": "Reports"
+                  "title": "Reports",
+                  "path" : "reports"
                 },
                 "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
               }
@@ -100,7 +103,8 @@
                 "type": "application",
                 "name": "@intermix/calendar",
                 "props": {
-                  "title": "Calendar"
+                  "title": "Calendar",
+                  "path": "calender"
                 },
                 "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
               }

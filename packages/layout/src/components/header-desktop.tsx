@@ -4,7 +4,7 @@ import LanguageSelector from "./language-selector";
 import { useTranslation } from "react-i18next";
 import {changeLanguage} from "@intermix/i18n";
 
-const HeaderDesktop: React.FC<any> = () => {
+const HeaderDesktop: React.FC<any> = ({onLogout}) => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
@@ -142,7 +142,7 @@ const HeaderDesktop: React.FC<any> = () => {
               <i className="fas fa-cogs mr-3"></i>{t('Support')}
             </a>
             <a
-              href="#"
+              onClick={onLogout}
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
               <i className="fas fa-sign-out-alt mr-3"></i>
