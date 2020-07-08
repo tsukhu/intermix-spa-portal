@@ -62,6 +62,7 @@ export default class IntermixGlobalStore {
         intermixState = {
           ...intermixState,
           menu: {
+            ...intermixState.menu,
             items: intermixState.menu.items.filter(
               (item) => item.path !== path
             ),

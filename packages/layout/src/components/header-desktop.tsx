@@ -2,7 +2,6 @@ import React from "react";
 import SearchBox from "./search-box";
 import LanguageSelector from "./language-selector";
 import { useTranslation } from "react-i18next";
-import {changeLanguage} from "@intermix/i18n";
 
 const HeaderDesktop: React.FC<any> = ({onLogout}) => {
   const { t, i18n } = useTranslation();

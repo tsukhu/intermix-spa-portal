@@ -7,7 +7,7 @@ const store = getGlobalStore();
 const Root: React.FC<any> = ({ name, path }) => {
   const [globalStore, setGlobalStore] = React.useState(store);
   const permitted = store.hasPermission(path);
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", { i18n: window["i18next"] });
   React.useLayoutEffect(() => {
     globalStore.subscribe(setGlobalStore);
   }, []);

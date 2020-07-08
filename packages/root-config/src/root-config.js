@@ -5,10 +5,7 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 import { APP_KEYS } from "./envConstants";
-
-System.import("@intermix/i18n").then(module => {
-  module.init('Hello from root config');
-});
+import i18nPromise from "./i18n";
 
 const fetchRoutes = async () => {
   return await (await fetch(APP_KEYS.routesApiUrl)).json();
@@ -53,6 +50,8 @@ fetchRoutes().then((result) => {
   System.import("@intermix/styleguide").then(() => {
     configureLoadingEl(false);
     layoutEngine.activate();
-    start();
+    i18nPromise.then(start).catch((err) => {
+      console.error(`Failed to initialize i18next translations`, err);
+    });
   });
 });
