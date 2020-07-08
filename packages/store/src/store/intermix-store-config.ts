@@ -19,6 +19,7 @@ export interface MenuItem {
 
 interface IntermixStoreConfig {
   menu: {
+    home: string;
     items?: MenuItem[];
   };
   user: User;

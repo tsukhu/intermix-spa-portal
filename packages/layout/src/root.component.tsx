@@ -24,6 +24,9 @@ const Root = (props) => {
         typeof result.menu !== "undefined" &&
         typeof result.menu.items !== "undefined"
       ) {
+        if (result.menu.home) {
+          store.setHomePagePath(result.menu.home);
+        }
         result.menu.items.map((item) => {
           // check if there is a route existing then add it
           const route = routes.find((route) => route.path === item.path);
@@ -83,7 +86,7 @@ const Root = (props) => {
           </div>
 
           <Route exact path="/">
-            <Redirect to="/dashboard" />
+            <Redirect to={globalStore.menu.home} />
           </Route>
         </>
       )}

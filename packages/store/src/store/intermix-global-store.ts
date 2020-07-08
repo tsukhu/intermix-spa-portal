@@ -8,7 +8,7 @@ import IntermixStoreConfig, {
 // Declare the subject
 const intermixSubject = new BehaviorSubject({});
 const initialState: IntermixStoreConfig = {
-  menu: { items: [] },
+  menu: { home: "", items: [] },
   user: { authenticated: false, role: Role.User, name: "", authToken: "" },
 };
 
@@ -31,10 +31,23 @@ export default class IntermixGlobalStore {
       },
       subscribe: (setState: any) => intermixSubject.subscribe(setState),
       observable: intermixSubject.asObservable(),
+      setHomePagePath: (home: string) => {
+        intermixState = {
+          ...intermixState,
+          menu: {
+            ...intermixState.menu,
+            home,
+          },
+        };
+        intermixSubject.next(intermixState);
+      },
       addMenuItem: (item: MenuItem) => {
         intermixState = {
           ...intermixState,
-          menu: { items: [...intermixState.menu.items, item] },
+          menu: {
+            ...intermixState.menu,
+            items: [...intermixState.menu.items, item],
+          },
         };
         intermixSubject.next(intermixState);
       },
@@ -57,7 +70,7 @@ export default class IntermixGlobalStore {
         intermixSubject.next(intermixState);
       },
       clearMenu: () => {
-        intermixState = { ...intermixState, menu: {} };
+        intermixState = { ...intermixState, menu: { ...initialState.menu } };
         intermixSubject.next(intermixState);
       },
       ...initialState,
@@ -82,6 +95,10 @@ export default class IntermixGlobalStore {
 
   addMenuItem(item: MenuItem) {
     return this.store.addMenuItem(item);
+  }
+
+  setHomePagePath(path: string) {
+    return this.store.setHomePagePath(path);
   }
 
   deleteMenuItem(path: string) {
