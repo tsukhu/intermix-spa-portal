@@ -11456,27 +11456,27 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-single-spa-angular@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/single-spa-angular/-/single-spa-angular-4.2.0.tgz#2a6d419ed591d005707afcb351c27801a4b83b4f"
-  integrity sha512-cE+txgnoIoI+Bg6/fW5OwoU/gJX1WOiBfY/HBb0+AV/n6vPKUymD9wZPMbxShKVfpMQlb+BFUokQ8UEne97Y8Q==
+single-spa-angular@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/single-spa-angular/-/single-spa-angular-4.3.1.tgz#cdd66d86c7fbe224b108e06e45a837d08ad98bc7"
+  integrity sha512-7DOEsKl4cK/W4Vd2UBcYcJmOYLLJ44+DNfMPDPWwdz6rF5a30V6hwNoEwdZ7SmhYbXtwd90/E8FDOji90cSwng==
 
-single-spa-layout@1.0.0-beta.4:
-  version "1.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.0.0-beta.4.tgz#b80516817a9134d43c5c02102cc53a989012d829"
-  integrity sha512-zj8Y+Rl1fmvypMYE43GVpruwt6xh4xKUFW6UDaWYDbIF9xHOWCFtlwq8vd6T4cws5IsHULzGz8XCK+PWlHlKuQ==
+single-spa-layout@1.0.0-beta.5:
+  version "1.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.0.0-beta.5.tgz#b95f194b84b4d76a991ad9215fab9e938b5cdc6b"
+  integrity sha512-w2iYNk8PDLnw+1eQKO53YTYpRbBznxUBHv3QqYAILPiwTAQy0boMIByllAEUDw1JPYV7tCjSdD3JPxmRF6yV1g==
   dependencies:
     "@types/parse5" "^5.0.3"
 
-single-spa-react@^2.10.4:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-2.14.0.tgz#4a55ea74a57db06adb41f0de3419a0c378745e1b"
-  integrity sha512-KQ2/y7/JBIquK0WUiwb1/Y7f4qTZITNotw+JwNPesj0WKeCi91u0LOZe2ps56QMJbyB4UrA5IzMBwbYWDr1pIw==
+single-spa-react@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-3.0.0.tgz#449e763360ea657c8421efb2151690a8ccf37c46"
+  integrity sha512-vwLoz04oyizZw7mjfBbmr7vsWBZjgT0qlMLB3scfR5y676RRF7pzvsCq0MxKw+Cc74UUAYjd/nVtLMzfON47ww==
 
-single-spa@^5.5.0, single-spa@^5.5.3:
-  version "5.5.3"
-  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.5.3.tgz#17c092120c7faf39bd740f95900f132150e17eb1"
-  integrity sha512-P+czr9i0814D4fH84IPcLq3hVxBD5dFaPF71V8bBsa9SrRv581FcS7CW/frpr9K53KMLKXsWb4z0O8zC+dtLfw==
+single-spa@^5.5.4:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.5.4.tgz#154ad43548994b92fbade9506ac4142dfe0fc78b"
+  integrity sha512-Nivf1RaHBvAytKH2mbiySxdr9NUGSKA5LseB+N6Aaxvev6jUlRev1bRNnCKqYOBjRDzaW6V6C2082SGyDfsZCg==
 
 sisteransi@^1.0.4:
   version "1.0.5"

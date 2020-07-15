@@ -44,7 +44,7 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "sass-loader": "^8.0.2",
-    "single-spa-react": "^2.10.4",
+    "single-spa-react": "^3.0.0",
     "style-loader": "^1.2.1",
     "systemjs-webpack-interop": "^1.1.2",
     "typescript": "^3.9.5",
