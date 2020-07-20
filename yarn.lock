@@ -2342,6 +2342,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+alpinejs@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-2.4.1.tgz#49f0d38bada7193ac168a0a1fb24ec52ea5e04ac"
+  integrity sha512-uaZCQ7I729Qf44eDKLXpzI3wiI16Nz6XU4cVnZER9+LBeZ/32laNJbjIxxx1etmRxamS+dbxvd/14BptrsaKYQ==
+
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
@@ -11460,6 +11465,11 @@ single-spa-angular@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/single-spa-angular/-/single-spa-angular-4.3.1.tgz#cdd66d86c7fbe224b108e06e45a837d08ad98bc7"
   integrity sha512-7DOEsKl4cK/W4Vd2UBcYcJmOYLLJ44+DNfMPDPWwdz6rF5a30V6hwNoEwdZ7SmhYbXtwd90/E8FDOji90cSwng==
+
+single-spa-html@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/single-spa-html/-/single-spa-html-1.1.2.tgz#50ae7855f9a54013b03a6b942d0456e274fc28dc"
+  integrity sha512-DPexA+oeghwXSODCEubFkqMpyRd/Wpq7pef08OgfYAk1jXjSBEyVwoxbuNyYgcqR8Qqn2LzbZ/ik0SoudlK4Iw==
 
 single-spa-layout@1.0.0-beta.5:
   version "1.0.0-beta.5"

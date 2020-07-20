@@ -1,6 +1,6 @@
 {
   "menu": {
-    "home": "dashboard",
+    "home": "landing",
     "items": [
       {
         "path": "dashboard",

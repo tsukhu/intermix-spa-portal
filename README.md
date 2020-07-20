@@ -41,3 +41,6 @@ yarn build
 
 - This will create a `dist` folder which can then be deployed as a static asset
 
+## Credits
+
+- Alpine JS Sample by [Eddie Beling](https://codepen.io/eddieebeling/pen/dyoZOBX) has been modified and used in the Landing Page

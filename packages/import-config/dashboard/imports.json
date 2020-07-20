@@ -16,11 +16,13 @@
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
       "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
       "react-i18next": "https://cdn.jsdelivr.net/npm/react-i18next@11.7.0/dist/umd/react-i18next.min.js",
-      "angular-i18next": "https://cdn.jsdelivr.net/npm/angular-i18next@9.0.1/bundles/angular-i18next.umd.js"
+      "angular-i18next": "https://cdn.jsdelivr.net/npm/angular-i18next@9.0.1/bundles/angular-i18next.umd.js",
+      "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@2.4.1/dist/alpine.min.js"
     }
   },
   "menu-config": {
     "menu": {
+      "home": "dashboard",
       "items": [
         {
           "path": "dashboard",
