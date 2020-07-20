@@ -7,10 +7,39 @@ import HeaderDesktop from "./components/header-desktop";
 import HeaderMobile from "./components/header-mobile";
 import { LoginForm } from "./components/login-form";
 
+export const UNAUTH_USER = { authenticated: true, role: Role.User, name: "guest", authToken: "" };
+export const NAMESPACE= "intermix-spa-portal"
+export const saveToLS = (name: string,scope: string, key: string, value: {}) => {
+  if (window.localStorage) {
+    window.localStorage.setItem(
+      `${name}_${scope}`,
+      JSON.stringify({
+        [key]: value,
+      })
+    );
+  }
+};
+
+export const getFromLS = (name: string, scope: any, key: any) => {
+  let ls: any = {};
+  if (window.localStorage) {
+    try {
+      ls = JSON.parse(window.localStorage.getItem(`${name}_${scope}`)!) || {};
+    } catch (e) {
+      /*Ignore*/
+    }
+  }
+  return ls[key];
+};
+
+export const isLoggedIn = ({ authenticated, name}) => {
+  return (authenticated && name.length > 0)
+}
+
 const store = getGlobalStore();
 const Root = (props) => {
   // Setup the Store Hook
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(null);
   const [globalStore, setGlobalStore] = React.useState(store);
 
   const fetchMenu = async () => {
@@ -43,7 +72,10 @@ const Root = (props) => {
 
   React.useEffect(() => {
     globalStore.subscribe(setGlobalStore);
+    const user = getFromLS(NAMESPACE, 'userInfo', 'user') || UNAUTH_USER;
     initMenu(props.routes);
+    store.setUser(user);
+    setLoggedIn(isLoggedIn(user))
   }, []);
 
   const handleLogin = ({ username, _ }) => {
@@ -57,22 +89,27 @@ const Root = (props) => {
     };
     if (username.toLowerCase().includes("admin")) {
       user = { ...user, role: Role.Admin };
+      saveToLS(NAMESPACE, 'userInfo', 'user', user);
       store.setUser(user);
     } else {
       user = { ...user, role: Role.User };
+      saveToLS(NAMESPACE, 'userInfo', 'user', user);
       store.setUser(user);
     }
-    setLoggedIn(true);
+    setLoggedIn(isLoggedIn(user));
   };
 
   const handleLogout = () => {
+    store.setUser(UNAUTH_USER);
+    saveToLS(NAMESPACE, 'userInfo', 'user', UNAUTH_USER);
     setLoggedIn(false);
   };
 
   return (
     <BrowserRouter basename="/">
-      {!loggedIn && <LoginForm onSuccess={(data) => handleLogin(data)} />}
-      {loggedIn && (
+      {loggedIn === null && <div>Loading ...</div>}
+      {loggedIn !== null && !loggedIn && <LoginForm onSuccess={(data) => handleLogin(data)} />}
+      {loggedIn !== null && loggedIn && (
         <>
           <div className="w-full flex h-screen overflow-y-hidden">
             <SideBar menu={globalStore.menu} />
