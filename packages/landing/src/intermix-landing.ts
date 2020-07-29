@@ -1,6 +1,6 @@
 import "./set-public-path";
 import "alpinejs";
-import singleSpaHtml from "single-spa-html";
+import singleSpaAlpinejs from "single-spa-alpinejs";
 
 declare global {
   interface Window {
@@ -19,14 +19,31 @@ window.alpineData = function() {
   };
 };
 
-const htmlLifecycles = singleSpaHtml({
-  template: (props) => `
+const appThreeDataFn = ({ title, name }) => ({
+  title,
+  intro:
+    'Implement a simple <code class="text-md text-pink-600">fetch()</code> request to render a list of items using Alpine.js :)',
+  users: [],
+  open: false,
+  name,
+});
+
+const appThreeFn = (id) => {
+  return fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then(
+      (data) =>
+        ((document.getElementById(`${id}`) as any).__x.$data.users = data)
+    );
+};
+
+const alpinejsLifecycles = singleSpaAlpinejs({
+  xData: (data) => appThreeDataFn(data), // pass props to x-data
+  xInit: appThreeFn,
+  template: (props) =>
+    Promise.resolve(`
   <section class="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-56 px-10 absolute h-75 overflow-y-auto" >
-    <div class="w-full h-full text-gray-800"
-      x-data="window.alpineData()"
-      x-init="fetch('https://jsonplaceholder.typicode.com/users')
-              .then(response => response.json())
-              .then(data => users = data)">
+    <div class="w-full h-full text-gray-800">
       <h1 class="mt-0 mb-3 font-light text-3xl" x-text="title"><!-- title text --></h1>
       <p class="text-xl text-gray-600 font-light mb-4" x-html="intro"><!-- intro text --></p>
       <div class="flex flex-wrap -mx-2 pb-8">
@@ -48,11 +65,11 @@ const htmlLifecycles = singleSpaHtml({
       </div>
     </div>
   </section>
-    `,
+    `),
 });
 
-export const bootstrap = htmlLifecycles.bootstrap;
-export const mount = htmlLifecycles.mount;
+export const bootstrap = alpinejsLifecycles.bootstrap;
+export const mount = alpinejsLifecycles.mount;
 export const unmount = (props) => {
-  return htmlLifecycles.unmount(props);
+  return alpinejsLifecycles.unmount(props);
 };

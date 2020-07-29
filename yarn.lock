@@ -11461,15 +11461,15 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+single-spa-alpinejs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/single-spa-alpinejs/-/single-spa-alpinejs-1.0.2.tgz#3a3e8f1d0301743d5f8868750bf94e2cd34d046d"
+  integrity sha512-ganJhgQvUpZ2NGpxJ1Wri7ZezmYFsWJM7wNGQSQuUoD6qLz/pJJRktDiNTbsGQFiQCuUrnDCC+xBmPw3/lULpw==
+
 single-spa-angular@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/single-spa-angular/-/single-spa-angular-4.3.1.tgz#cdd66d86c7fbe224b108e06e45a837d08ad98bc7"
   integrity sha512-7DOEsKl4cK/W4Vd2UBcYcJmOYLLJ44+DNfMPDPWwdz6rF5a30V6hwNoEwdZ7SmhYbXtwd90/E8FDOji90cSwng==
-
-single-spa-html@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/single-spa-html/-/single-spa-html-1.1.2.tgz#50ae7855f9a54013b03a6b942d0456e274fc28dc"
-  integrity sha512-DPexA+oeghwXSODCEubFkqMpyRd/Wpq7pef08OgfYAk1jXjSBEyVwoxbuNyYgcqR8Qqn2LzbZ/ik0SoudlK4Iw==
 
 single-spa-layout@1.0.0-beta.5:
   version "1.0.0-beta.5"

@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "alpinejs": "^2.4.1",
-    "single-spa-html": "^1.1.2"
+    "single-spa-alpinejs": "^1.0.2"
   },
   "name": "landing",
   "version": "1.0.0",
