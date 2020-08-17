@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject, Subject } from "rxjs";
 import IntermixStoreConfig, {
   Role,
   User,
@@ -6,18 +6,18 @@ import IntermixStoreConfig, {
 } from "./intermix-store-config";
 
 // Declare the subject
-const intermixSubject = new BehaviorSubject({});
-const initialState: IntermixStoreConfig = {
-  menu: { home: "", items: [] },
-  user: { authenticated: false, role: Role.User, name: "", authToken: "" },
-};
-
-// Intermix Initial State
-let intermixState: IntermixStoreConfig = initialState;
 
 export default class IntermixGlobalStore {
   private static instance: IntermixGlobalStore;
-
+  // Intermix Initial State
+  initialState: IntermixStoreConfig = {
+    menu: { home: "", items: [] },
+    user: { authenticated: false, role: Role.User, name: "", authToken: "" },
+  };
+  intermixState: IntermixStoreConfig = this.initialState;
+  intermixSubject: Subject<IntermixStoreConfig> = new BehaviorSubject<
+    IntermixStoreConfig
+  >(this.intermixState);
   store: any;
   constructor() {
     if (IntermixGlobalStore.instance) {
@@ -26,55 +26,58 @@ export default class IntermixGlobalStore {
 
     this.store = {
       init: () => {
-        intermixState = { ...intermixState };
-        intermixSubject.next(intermixState);
+        this.intermixState = { ...this.intermixState };
+        this.intermixSubject.next(this.intermixState);
       },
-      subscribe: (setState: any) => intermixSubject.subscribe(setState),
-      observable: intermixSubject.asObservable(),
+      subscribe: (setState: any) => this.intermixSubject.subscribe(setState),
+      observable: this.intermixSubject.asObservable(),
       setHomePagePath: (home: string) => {
-        intermixState = {
-          ...intermixState,
+        this.intermixState = {
+          ...this.intermixState,
           menu: {
-            ...intermixState.menu,
+            ...this.intermixState.menu,
             home,
           },
         };
-        intermixSubject.next(intermixState);
+        this.intermixSubject.next(this.intermixState);
       },
       addMenuItem: (item: MenuItem) => {
-        intermixState = {
-          ...intermixState,
+        this.intermixState = {
+          ...this.intermixState,
           menu: {
-            ...intermixState.menu,
-            items: [...intermixState.menu.items, item],
+            ...this.intermixState.menu,
+            items: [...this.intermixState.menu.items, item],
           },
         };
-        intermixSubject.next(intermixState);
+        this.intermixSubject.next(this.intermixState);
       },
       setUser: (user: User) => {
-        intermixState = {
-          ...intermixState,
-          user: { ...intermixState.user, ...user },
+        this.intermixState = {
+          ...this.intermixState,
+          user,
         };
-        intermixSubject.next(intermixState);
+        this.intermixSubject.next(this.intermixState);
       },
       deleteMenuItem: (path: string) => {
-        intermixState = {
-          ...intermixState,
+        this.intermixState = {
+          ...this.intermixState,
           menu: {
-            ...intermixState.menu,
-            items: intermixState.menu.items.filter(
-              (item) => item.path !== path
+            ...this.intermixState.menu,
+            items: this.intermixState.menu.items.filter(
+              (item: any) => item.path !== path
             ),
           },
         };
-        intermixSubject.next(intermixState);
+        this.intermixSubject.next(this.intermixState);
       },
       clearMenu: () => {
-        intermixState = { ...intermixState, menu: { ...initialState.menu } };
-        intermixSubject.next(intermixState);
+        this.intermixState = {
+          ...this.intermixState,
+          menu: { ...this.initialState.menu },
+        };
+        this.intermixSubject.next(this.intermixState);
       },
-      ...initialState,
+      ...this.initialState,
     };
 
     this.store.init();
@@ -115,11 +118,11 @@ export default class IntermixGlobalStore {
   }
 
   getSubscription() {
-    return this.store.observable;
+    return this.intermixSubject.asObservable();
   }
 
   hasPermission(path) {
-    const { user, menu } = intermixState;
+    const { user, menu } = this.intermixState;
 
     if (menu && menu.items && path) {
       // Get the Menu Item for the given path

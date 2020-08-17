@@ -13,15 +13,18 @@ import { getGlobalStore } from '@intermix/store';
 export class AppComponent implements OnInit {
   title = 'calendar';
   singleSpaProps$ = singleSpaPropsSubject.asObservable();
-  menu: any;
+  menu$ =  getGlobalStore().getSubscription();
 
   constructor() {
     // getGlobalStore().subscribe(data => this.menu =  Object.assign({},data));
+
   }
 
   ngOnInit(): void {
     // this.menu = getGlobalStore().getSubscription();
     // TODO : The global store is initialized a bit later in the layout
-    setTimeout(() => (this.menu = getGlobalStore().getSubscription()), 500);
+   // setTimeout(() => (this.menu = getGlobalStore().getSubscription()), 500);
+  // this.menu$ =  getGlobalStore().getSubscription();
+
   }
 }

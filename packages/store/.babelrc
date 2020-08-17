@@ -7,6 +7,7 @@
     ["@babel/plugin-transform-runtime", {
       "useESModules": true,
       "regenerator": false
-    }]
+    }],
+    ["@babel/plugin-proposal-class-properties"]
   ]
 }
