@@ -46,7 +46,7 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
             <img
               className="rounded-full"
               alt="A"
-              src="https://i.pravatar.cc/64"
+              src="https://randomuser.me/portraits/men/10.jpg"
             />
           </button>
         </div>
