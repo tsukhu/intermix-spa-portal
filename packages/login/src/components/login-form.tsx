@@ -6,11 +6,11 @@ export interface LoginFormProps {
 }
 
 export const LoginForm = ({ onSuccess }) => {
-  const [username,setUsername] = React.useState(null);
-  const [password,setPassword] = React.useState(null);
-  const handleSubmit = (event) => {
+  const [username, setUsername] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    onSuccess({username,password});
+    onSuccess({ username, password });
   };
 
   return (
@@ -73,7 +73,9 @@ export const LoginForm = ({ onSuccess }) => {
                     </button>
                   </div>
                 </form>
-                <p className="form-horizontal w-3/4 mx-auto m-2 text-xs text-gray-600 text-center">admin/admin , demo/demo</p>
+                <p className="form-horizontal w-3/4 mx-auto m-2 text-xs text-gray-600 text-center">
+                  admin/admin , demo/demo
+                </p>
                 <div className="text-center mt-4 border-b-2 border-gray-500 m-0 mr-4 ml-4 mb-2">
                   <a
                     className="no-underline hover:underline text-blue-800 text-xs"

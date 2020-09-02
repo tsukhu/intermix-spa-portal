@@ -1,15 +1,25 @@
 import React from "react";
 import "../styles/global.scss";
+import { navigateToUrl } from "single-spa";
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import { getGlobalStore, Role } from "@intermix/store";
 import SideBar from "./components/side-bar";
 import HeaderDesktop from "./components/header-desktop";
 import HeaderMobile from "./components/header-mobile";
-import { LoginForm } from "./components/login-form";
 
-export const UNAUTH_USER = { authenticated: true, role: Role.User, name: "guest", authToken: "" };
-export const NAMESPACE= "intermix-spa-portal"
-export const saveToLS = (name: string,scope: string, key: string, value: {}) => {
+export const UNAUTH_USER = {
+  authenticated: false,
+  role: Role.User,
+  name: "guest",
+  authToken: "",
+};
+export const NAMESPACE = "intermix-spa-portal";
+export const saveToLS = (
+  name: string,
+  scope: string,
+  key: string,
+  value: {}
+) => {
   if (window.localStorage) {
     window.localStorage.setItem(
       `${name}_${scope}`,
@@ -32,14 +42,13 @@ export const getFromLS = (name: string, scope: any, key: any) => {
   return ls[key];
 };
 
-export const isLoggedIn = ({ authenticated, name}) => {
-  return (authenticated && name.length > 0)
-}
+export const isLoggedIn = ({ authenticated, name }) => {
+  return authenticated && name.length > 0;
+};
 
-const store = getGlobalStore();
 const Root = (props) => {
   // Setup the Store Hook
-  const [loggedIn, setLoggedIn] = React.useState(null);
+  const store = getGlobalStore();
   const [globalStore, setGlobalStore] = React.useState(store);
 
   const fetchMenu = async () => {
@@ -72,44 +81,30 @@ const Root = (props) => {
 
   React.useEffect(() => {
     globalStore.subscribe(setGlobalStore);
-    const user = getFromLS(NAMESPACE, 'userInfo', 'user') || UNAUTH_USER;
+    const user = getFromLS(NAMESPACE, "userInfo", "user") || UNAUTH_USER;
     initMenu(props.routes);
-    store.setUser(user);
-    setLoggedIn(isLoggedIn(user))
+    globalStore.setUser(user);
   }, []);
 
-  const handleLogin = ({ username, _ }) => {
-    // Dummy for admin user test
-    // ideally call an auth service to handle this
-    let user = {
-      role: '',
-      name: username,
-      authToken: "token_1",
-      authenticated: true,
-    };
-    if (username.toLowerCase().includes("admin")) {
-      user = { ...user, role: Role.Admin };
-      saveToLS(NAMESPACE, 'userInfo', 'user', user);
-      store.setUser(user);
-    } else {
-      user = { ...user, role: Role.User };
-      saveToLS(NAMESPACE, 'userInfo', 'user', user);
-      store.setUser(user);
+  React.useEffect(() => {
+    if (typeof globalStore.user !== "undefined") {
+      console.log(globalStore.user);
+      saveToLS(NAMESPACE, "userInfo", "user", globalStore.user);
     }
-    setLoggedIn(isLoggedIn(user));
-  };
+  }, [globalStore]);
 
   const handleLogout = () => {
     store.setUser(UNAUTH_USER);
-    saveToLS(NAMESPACE, 'userInfo', 'user', UNAUTH_USER);
-    setLoggedIn(false);
+    saveToLS(NAMESPACE, "userInfo", "user", UNAUTH_USER);
   };
 
   return (
     <BrowserRouter basename="/">
-      {loggedIn === null && <div>Loading ...</div>}
-      {loggedIn !== null && !loggedIn && <LoginForm onSuccess={(data) => handleLogin(data)} />}
-      {loggedIn !== null && loggedIn && (
+      {typeof globalStore.user === "undefined" && <div>Loading ...</div>}
+      {typeof globalStore.user !== "undefined" &&
+        !isLoggedIn(globalStore.user) &&
+        navigateToUrl("/login")}
+      {typeof globalStore.user !== "undefined" && isLoggedIn(globalStore.user) && (
         <>
           <div className="w-full flex h-screen overflow-y-hidden">
             <SideBar menu={globalStore.menu} />
