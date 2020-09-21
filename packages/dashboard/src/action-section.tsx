@@ -45,7 +45,15 @@ export const ActionSection: React.FC<any> = (props) => {
     if (globalStore && globalStore.tasks) {
       const task = globalStore.tasks.find((item) => item.taskId === id);
       if (task) {
-        setTask(task);
+        let details;
+
+        if (task && task.taskData) {
+          details = Object.entries(task.taskData).map((data) => ({
+            key: data[0],
+            value: data[1],
+          }));
+        }
+        setTask({ taskId: task.taskId, taskName: task.taskName, details });
       }
     }
   }, [globalStore, id]);
@@ -70,6 +78,10 @@ export const ActionSection: React.FC<any> = (props) => {
                     {`Task ID: ${task.taskId}`}
                   </h5>
                   <p>{task.taskName}</p>
+                  {task.details &&
+                    task.details.map(({ key, value }, i) => (
+                      <p key={`${key}-${i}`}>{`${key} : ${value}`}</p>
+                    ))}
                   <button
                     onClick={() => handleApproval(task.taskId, true)}
                     className="px-2 py-2 m-4 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none"
