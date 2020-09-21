@@ -29,6 +29,7 @@ module.exports = {
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
     textColor: ['responsive', 'hover', 'focus', 'active'],
     opacity: ['responsive', 'hover', 'focus', 'disabled', 'active'],
+    tableLayout: ['responsive', 'hover', 'focus'],
   },
   plugins: [],
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import SearchBox from "./search-box";
+import { navigateToUrl } from "single-spa";
 import LanguageSelector from "./language-selector";
 import { useTranslation } from "react-i18next";
 
-const HeaderDesktop: React.FC<any> = ({onLogout}) => {
+const HeaderDesktop: React.FC<any> = ({ onLogout, tasks }) => {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
@@ -12,14 +13,17 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
       <div className="w-2/4 justify-end align-middle text-center items-center z-50">
         <SearchBox
           searchText={null}
-          searchPlaceholder={t('Search')}
+          searchPlaceholder={t("Search")}
           onSearchTextChange={(text) => console.log(text)}
           onSearchSubmit={() => console.log("Add Search handler")}
         />
       </div>
 
       <div className="w-2/4 flex justify-end">
-        <LanguageSelector currentLanguage={"en"} onLanguageChange={(e) => i18n.changeLanguage(e.target.value)}/>
+        <LanguageSelector
+          currentLanguage={"en"}
+          onLanguageChange={(e) => i18n.changeLanguage(e.target.value)}
+        />
         <div className="relative mr-2 z-50">
           <button
             onClick={() => {
@@ -29,10 +33,10 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
             className="z-10 w-12 h-12  text-2xl mr-1text-gray-800 rounded-full overflow-hidden focus:outline-none"
           >
             <i className="fas fa-bell"></i>
-            <div
+            {tasks && tasks.length > 0 && <div
               className="bg-orange-500 rounded-full w-3 h-3 absolute"
               style={{ bottom: ".3rem", right: ".25rem" }}
-            ></div>
+            ></div>}
           </button>
         </div>
         <div className="relative z-50">
@@ -55,73 +59,28 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
         )}
         {openAlerts && (
           <div className="animate__animated animate__fadeIn absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50">
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 1
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 2
-              </a>
-            </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 3
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 4
-              </a>
-            </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 4
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 6
-              </a>
-            </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                role="menuitem"
-              >
-                <i className="fas fa-list mr-3"></i>
-                Alert 7
-              </a>
-            </div>
+            {tasks.map(({ taskId }, i) => {
+              return (
+                <>
+                  <div class="py-1">
+                    <p
+                      onClick={() => {
+                        setOpenAlerts(false);
+                        navigateToUrl(`/workflow/${taskId}`);
+                      }}
+                      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      role="menuitem"
+                    >
+                      <i className="fas fa-list mr-3"></i>
+                      {taskId.split("-")[0]}
+                    </p>
+                  </div>
+                  {i !== tasks.length - 1 && (
+                    <div class="border-t border-gray-100"></div>
+                  )}
+                </>
+              );
+            })}
           </div>
         )}
         {open && (
@@ -131,21 +90,22 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
               <i className="fas fa-user mr-3"></i>
-              {t('Account')}
+              {t("Account")}
             </a>
             <div class="border-t border-gray-100"></div>
             <a
               href="#"
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
-              <i className="fas fa-cogs mr-3"></i>{t('Support')}
+              <i className="fas fa-cogs mr-3"></i>
+              {t("Support")}
             </a>
             <a
               onClick={onLogout}
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
             >
               <i className="fas fa-sign-out-alt mr-3"></i>
-              {t('Sign Out')}
+              {t("Sign Out")}
             </a>
           </div>
         )}

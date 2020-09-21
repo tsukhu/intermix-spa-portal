@@ -37,6 +37,7 @@ fetchRoutes().then((result) => {
         ...app.customProps(name, location),
         jwttoken: "test",
         menuApiUrl: APP_KEYS.menuApiUrl,
+        wfApiUrl: APP_KEYS.wfApiUrl,
         routes:
           name === "@intermix/layout" &&
           typeof result.routes !== undefined &&
