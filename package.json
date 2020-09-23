@@ -10,12 +10,21 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": ["**/@types/**"]
+    "nohoist": [
+      "**/@types/**",
+      "**/react-hook-form/**",
+      "**/react-hook-form",
+      "**/react-bpmn/**",
+      "**/react-bpmn",
+      "**/bpmn-js/**",
+      "**/bpmn-js"
+    ]
   },
   "scripts": {
     "clean": "rimraf node_modules packages/**/node_modules",
     "build": "yarn workspaces run build",
-    "start": "concurrently \"wsrun --parallel start\""
+    "start": "concurrently \"wsrun --parallel start\"",
+    "start:wf": "concurrently \"wsrun --exclude calendar --exclude landing --exclude reports --parallel start\""
   },
   "dependencies": {
     "concurrently": "^5.2.0",

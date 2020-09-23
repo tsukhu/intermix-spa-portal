@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "echo hello",
-    "start2": "webpack-dev-server",
+    "start": "webpack-dev-server",
     "clean": "rimraf dist && rimraf ../../dist/reports",
     "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/reports",
     "build": "npm run clean && webpack --mode=production && npm run copy-for-deploy",

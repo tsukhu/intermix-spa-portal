@@ -49,6 +49,7 @@ module.exports = (env) => ({
       __ROUTES_API_URL__: JSON.stringify(`${process.env.ROUTES_API_URL}`),
       __MENU_API_URL__: JSON.stringify(`${process.env.MENU_API_URL}`),
       __WF_API_URL__: JSON.stringify(`${process.env.WF_API_URL}`),
+      __WF_STATIC_URL__: JSON.stringify(`${process.env.WF_STATIC_URL}`),
     }),
   ],
   externals: ["single-spa", /^@intermix\/.+$/, "i18next", "react-i18next"],

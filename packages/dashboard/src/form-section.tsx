@@ -113,7 +113,7 @@ export const FormSection: React.FC<any> = (props) => {
 
               <div className="flex mt-4 justify-end">
                 <button
-                  className="align-center px-1 py-1 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                  className="align-center px-1 py-1 border-blue-500 border text-blue-500 rounded hover:bg-blue-700 hover:text-white focus:outline-none"
                   type="submit"
                 >
                   Create

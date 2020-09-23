@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 import { getGlobalStore } from "@intermix/store";
 import { useTranslation } from "react-i18next";
@@ -16,7 +17,7 @@ export const ListSection: React.FC<any> = (props) => {
   const refreshTasks = () => {
     store.setTasksUpdated(true);
   };
-
+console.log(props.wfApiUrl);
   return (
     <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-48 absolute ">
       <div className="px-4 py-6 sm:px-0 h-full w-full justify-center border-4 border-dashed border-gray-200 rounded-lg h-96">
@@ -33,6 +34,7 @@ export const ListSection: React.FC<any> = (props) => {
           </svg>
           <p>{`${t("Tasks Requiring Attention")} ...`}</p>
         </div>
+
         {showForm && (
           <FormSection
             handleSubmit={(result) => {
@@ -46,12 +48,12 @@ export const ListSection: React.FC<any> = (props) => {
         )}
         {!showForm && (
           <section className="animate__animated animate__fadeIn inset-0">
-            <div className="relative bg-white ml-4 sm:ml-16 sm:mr-16 p-4 rounded border border-dotted flex justify-center">
+            <div className="relative bg-white ml-4 sm:ml-16 sm:mr-16 p-4 flex justify-center border-gray-100 border border-dotted  rounded">
               <button
                 className="absolute top-0 right-0 m-4 px-2 py-2 rounded-full border-blue-500 border text-blue-500 w-10 h-10 transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
                 onClick={() => setShowForm(true)}
               >
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                <i className="fa fa-plus" aria-hidden="true"></i>
               </button>
               <table className="table-auto m-4">
                 <thead>

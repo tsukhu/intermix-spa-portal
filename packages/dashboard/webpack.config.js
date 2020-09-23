@@ -9,7 +9,7 @@ module.exports = (webpackConfigEnv) => {
   });
 
   const intermixExternals = {
-    externals: [/^@intermix\/.+$/, "i18next", "react-i18next"],
+    externals: [/^@intermix\/?.+$/, "i18next", "react-i18next"],
   };
 
   return webpackMerge.smart(defaultConfig, intermixExternals, {
@@ -25,7 +25,7 @@ module.exports = (webpackConfigEnv) => {
           use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
-          test: /\.(woff(2)?|ttf|eot|svg|jpg|png)(\?v=\d+\.\d+\.\d+)?$/,
+          test: /\.(woff(2)?|ttf|eot|svg|jpg|png|bpmn)(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
               loader: "file-loader",
