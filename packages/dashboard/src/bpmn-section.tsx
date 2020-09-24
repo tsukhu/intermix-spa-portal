@@ -9,22 +9,20 @@ export const BpmnSection: React.FC<any> = (props) => {
   const [error, setError] = React.useState(null);
   const onShown = () => {
     const domel = inputEl.current.containerRef.current;
-    const currentEl = domel.querySelector("[data-element-id='posubmitted']");
-    currentEl.firstElementChild.firstElementChild.style.fill = "lightgreen";
+    const currentEl = domel.querySelector(
+      `[data-element-id='${props.currentKey}']`
+    );
+    currentEl.firstElementChild.classList.add("intermix-active-task");
     const ApproveEl = domel.querySelector("[data-element-id='approvednotify']");
     ApproveEl.firstElementChild.classList.add("intermix-task");
     ApproveEl.firstElementChild.addEventListener("click", function() {
-      //      alert('Approved');
       props.onApproval();
     });
     const RejectEl = domel.querySelector("[data-element-id='rejectednotify']");
     RejectEl.firstElementChild.classList.add("intermix-task");
     RejectEl.firstElementChild.addEventListener("click", function() {
-      //    alert('rejected');
       props.onRejection();
     });
-    //  currentEl.firstElementChild.firstElementChild.style.hover = 'lightgreen';
-    //  ApproveEl.addEventListener
   };
 
   const onLoading = () => {

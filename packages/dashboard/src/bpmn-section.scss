@@ -5,3 +5,11 @@
     cursor: pointer;
   }
 }
+
+.intermix-active-task {
+    rect {
+      fill: lightgreen !important;
+      fill-opacity: 1;
+    }
+  }
+  

@@ -17,10 +17,10 @@ export const ListSection: React.FC<any> = (props) => {
   const refreshTasks = () => {
     store.setTasksUpdated(true);
   };
-console.log(props.wfApiUrl);
+  console.log(props.wfApiUrl);
   return (
-    <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-48 absolute ">
-      <div className="px-4 py-6 sm:px-0 h-full w-full justify-center border-4 border-dashed border-gray-200 rounded-lg h-96">
+    <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-48 absolute flex overflow-y-auto">
+      <div className="px-4 py-6 sm:px-0 flex-grow-1 w-full justify-center rounded-lg">
         <div
           className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 m-2 mx-12 rounded"
           role="alert"
@@ -58,7 +58,8 @@ console.log(props.wfApiUrl);
               <table className="table-auto m-4">
                 <thead>
                   <tr>
-                    <th className="px-4 py-2">ID</th>
+                    <th className="px-4 py-2">Process ID</th>
+                    <th className="px-4 py-2">Task ID</th>
                     <th className="px-4 py-2">Name</th>
                     <th className="px-4 py-2">Details</th>
                   </tr>
@@ -66,24 +67,29 @@ console.log(props.wfApiUrl);
                 <tbody>
                   {globalStore &&
                     globalStore.tasks &&
-                    globalStore.tasks.map(({ taskId, taskName }) => {
-                      return (
-                        <>
-                          <tr>
-                            <td className="border px-4 py-4">{taskId}</td>
-                            <td className="border px-4 py-4">{taskName}</td>
-                            <td className="border px-4 py-4">
-                              <Link
-                                to={`/workflow/${taskId}`}
-                                className="px-2 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
-                              >
-                                Details
-                              </Link>
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })}
+                    globalStore.tasks.map(
+                      ({ processInstanceId, taskId, taskName }) => {
+                        return (
+                          <>
+                            <tr>
+                              <td className="border px-4 py-4">
+                                {processInstanceId}
+                              </td>
+                              <td className="border px-4 py-4">{taskId}</td>
+                              <td className="border px-4 py-4">{taskName}</td>
+                              <td className="border px-4 py-4">
+                                <Link
+                                  to={`/workflow/${taskId}`}
+                                  className="px-2 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                                >
+                                  Details
+                                </Link>
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      }
+                    )}
                 </tbody>
               </table>
             </div>

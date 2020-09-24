@@ -55,7 +55,12 @@ export const ActionSection: React.FC<any> = (props) => {
             value: data[1],
           }));
         }
-        setTask({ taskId: task.taskId, taskName: task.taskName, details });
+        setTask({
+          processDefByKey: task.processDefByKey,
+          taskId: task.taskId,
+          taskName: task.taskName,
+          details,
+        });
       }
     }
   }, [globalStore, id]);
@@ -65,7 +70,7 @@ export const ActionSection: React.FC<any> = (props) => {
   return (
     <>
       {processing && (
-        <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-56 absolute">
+        <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-56 absolute flex overflow-y-auto">
           Processing...
         </section>
       )}
@@ -77,6 +82,7 @@ export const ActionSection: React.FC<any> = (props) => {
             <>
               <BpmnSection
                 {...props}
+                currentKey={task.processDefByKey}
                 onApproval={() => handleApproval(task.taskId, true)}
                 onRejection={() => handleApproval(task.taskId, false)}
               />
@@ -84,14 +90,14 @@ export const ActionSection: React.FC<any> = (props) => {
                 <div className="border rounded w-full bg-white">
                   <div className="p-4">
                     <h5 className="text-sm text-gray-500 font-bold tracking-widest mb-2 uppercase">
-                      {`Task ID: ${task.taskId}`}
+                      {`Process ID: ${task.processId}`}
                     </h5>
                     <p>{task.taskName}</p>
                     {task.details &&
                       task.details.map(({ key, value }, i) => (
                         <p key={`${key}-${i}`}>{`${key} : ${value}`}</p>
                       ))}
-                     <button
+                    <button
                       onClick={() => handleApproval(task.taskId, true)}
                       className="px-2 py-2 m-4 border-green-500 border text-green-500 rounded  hover:bg-green-700 hover:text-white focus:outline-none transition duration-300"
                     >
@@ -102,7 +108,7 @@ export const ActionSection: React.FC<any> = (props) => {
                       className="px-2 py-2 m-4 border-red-500 border text-red-500 rounded  hover:bg-red-700 hover:text-white focus:outline-none transition duration-300"
                     >
                       Reject
-                    </button> 
+                    </button>
                   </div>
                 </div>
               </div>
