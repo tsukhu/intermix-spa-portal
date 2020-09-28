@@ -7,11 +7,11 @@ export const HistorySection: React.FC<any> = (props) => {
   const { t } = useTranslation();
   const [historicItems, setHistoricItems] = React.useState([]);
 
-  const millSecondsToWords = (timeInMilliSeconds) => {
-    const seconds = (timeInMilliSeconds / 1000).toFixed(0);
-    const minutes = (seconds / 60).toFixed(0);
-    const hours = (minutes / 60).toFixed(0);
-    const days = (hours / 24).toFixed(0);
+  const millSecondsToWords = (timeInMilliSeconds: number) => {
+    const seconds: number = +(timeInMilliSeconds / 1000).toFixed(0);
+    const minutes: number = +(seconds / 60).toFixed(0);
+    const hours: number = +(minutes / 60).toFixed(0);
+    const days: number = +(hours / 24).toFixed(0);
     return `${days > 0 ? `${days} days` : ""} ${
       hours > 0 ? `${hours} hours` : ""
     } ${minutes > 0 ? `${minutes % 60} minutes` : ""} ${
@@ -39,13 +39,20 @@ export const HistorySection: React.FC<any> = (props) => {
   React.useEffect(() => {
     fetchTasks().then((res: any) => {
       const items = res.data;
-      setHistoricItems(items.filter((i: any) => i.endTime !== null));
+      const filteredItems = items.filter((i: any) => i.endTime !== null);
+
+      filteredItems.sort(function(a, b) {
+        const aDate = new Date(a.startTime);
+        const bDate = new Date(b.startTime);
+        return aDate - bDate;
+      });
+      setHistoricItems(filteredItems);
     });
   }, []);
   return (
-    <div className="px-4 py-6 sm:px-0 flex-grow-1 flex-shrink-1 justify-center rounded-lg">
+    <div className="px-4 py-6 sm:px-0 flex-grow-1 flex-shrink-1 justify-center rounded-lg text-sm">
       <div
-        className="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3 m-2 mx-12 rounded"
+        className="flex items-center bg-green-500 text-white text-xs px-4 py-3 m-2 mx-12 rounded"
         role="alert"
       >
         <svg
@@ -60,14 +67,27 @@ export const HistorySection: React.FC<any> = (props) => {
 
       <section className="animate__animated animate__fadeIn inset-0 ">
         <div className="bg-white relative ml-4 sm:ml-16 sm:mr-16 p-4 flex justify-center border-gray-100 border border-dotted  rounded">
-          <table className="table-auto m-4">
+          <table className="border-collapse w-full text-sm">
             <thead>
               <tr>
-                <th className="px-4 py-2">Process ID</th>
-                <th className="px-4 py-2">Type</th>
-                <th className="px-4 py-2">Start Time</th>
-                <th className="px-4 py-2">End Time</th>
-                <th className="px-4 py-2">Duration</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  Process ID
+                </th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  Type
+                </th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  Start Time
+                </th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  End Time
+                </th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  Duration
+                </th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                  Details
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -81,23 +101,51 @@ export const HistorySection: React.FC<any> = (props) => {
                 }) => {
                   return (
                     <>
-                      <tr>
-                        <td className="border px-4 py-4">{id}</td>
-                        <td className="border px-4 py-4">
-                          {processDefinitionName}
+                      <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            Process ID
+                          </span>
+                          <span className="ml-24 lg:ml-0">{id}</span>
                         </td>
-                        <td className="border px-4 py-4">{`${format(
-                          new Date(startTime),
-                          "MM/dd/yyyy"
-                        )}`}</td>
-                        <td className="border px-4 py-4">{`${format(
-                          new Date(endTime),
-                          "MM/dd/yyyy"
-                        )}`}</td>
-                        <td className="border px-4 py-4">{`${millSecondsToWords(
-                          durationInMillis
-                        )}`}</td>
-                        <td className="border px-4 py-4">
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            Type
+                          </span>
+                          <span className="ml-24 lg:ml-0">
+                            {processDefinitionName}
+                          </span>
+                        </td>
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            Start Time
+                          </span>
+                          <span className="ml-16 lg:ml-0">{`${format(
+                            new Date(startTime),
+                            "MM/dd/yyyy  HH:mm:ss.SSS"
+                          )}`}</span>
+                        </td>
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            End Time
+                          </span>
+                          <span className="ml-16 lg:ml-0">{`${format(
+                            new Date(endTime),
+                            "MM/dd/yyyy  HH:mm:ss.SSS"
+                          )}`}</span>
+                        </td>
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            Duration
+                          </span>
+                          <span className="ml-16 lg:ml-0">{`${millSecondsToWords(
+                            durationInMillis
+                          )}`}</span>
+                        </td>
+                        <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                          <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                            Details
+                          </span>
                           <Link
                             to={`/workflow/history/${id}`}
                             className="px-2 py-2 border-blue-500 border text-blue-500 text-sm rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"

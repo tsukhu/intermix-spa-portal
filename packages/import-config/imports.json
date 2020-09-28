@@ -3,7 +3,7 @@
     "imports": {
       "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
       "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
-      "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.3/lib/system/single-spa.min.js",
+      "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.6.0/lib/system/single-spa.min.js",
       "@fortawesome/fontawesome-free": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.js",
       "@intermix/root-config": "http://localhost:9000/root-config.js",
       "@intermix/layout": "http://localhost:8000/intermix-layout.js",
@@ -31,7 +31,7 @@
         {
           "path": "/workflow",
           "title": "Workflow",
-          "iconClasses": "fas fa-tachometer-alt"
+          "iconClasses": "fas fa-cogs"
         },
         {
           "path": "/reports",

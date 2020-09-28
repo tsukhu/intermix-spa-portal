@@ -1,7 +1,8 @@
 import React from "react";
 import ReactBpmn from "react-bpmn";
 import "./bpmn-section.scss";
-import bpmnFile from "./data/PurchaseOrder.bpmn";
+import bpmnPOInvoice from "./data/POInvoice.bpmn";
+import bpmnPOOrder from "./data/PurchaseOrder.bpmn";
 
 export const BpmnSection: React.FC<any> = (props) => {
   const inputEl = React.useRef(null);
@@ -13,7 +14,7 @@ export const BpmnSection: React.FC<any> = (props) => {
       `[data-element-id='${props.currentKey}']`
     );
     currentEl.firstElementChild.classList.add("intermix-active-task");
-    const ApproveEl = domel.querySelector("[data-element-id='approvednotify']");
+    /*     const ApproveEl = domel.querySelector("[data-element-id='approvednotify']");
     ApproveEl.firstElementChild.classList.add("intermix-task");
     ApproveEl.firstElementChild.addEventListener("click", function() {
       props.onApproval();
@@ -22,7 +23,7 @@ export const BpmnSection: React.FC<any> = (props) => {
     RejectEl.firstElementChild.classList.add("intermix-task");
     RejectEl.firstElementChild.addEventListener("click", function() {
       props.onRejection();
-    });
+    }); */
   };
 
   const onLoading = () => {
@@ -34,6 +35,7 @@ export const BpmnSection: React.FC<any> = (props) => {
   };
 
   React.useEffect(() => {
+    const bpmnFile = props.type === "po_order" ? bpmnPOOrder : bpmnPOInvoice;
     try {
       fetch(bpmnFile)
         .then((res) => res.text())

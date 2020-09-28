@@ -12,13 +12,13 @@ const SideBar: React.FC<any> = ({ menu }) => {
       <div className="p-4 text-center align-center">
         <NavLink
           to="/"
-          className="text-white  text-2xl font-semibold sentance hover:text-gray-300 inline-flex"
+          className="text-white  text-2xl sentance hover:text-gray-300 inline-flex"
         >
           <LogoSmallSVG />
           Intermix
         </NavLink>
       </div>
-      <nav className="text-white text-base font-semibold pt-3">
+      <nav className="text-white text-base pt-3">
         {menu.items
           .filter((m) => store.hasPermission(m.path))
           .map((item) => {

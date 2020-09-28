@@ -18,9 +18,9 @@ export const ListSection: React.FC<any> = (props) => {
     store.setTasksUpdated(true);
   };
   return (
-    <div className="px-4 py-6 sm:px-0 flex-grow-1 w-full justify-center rounded-lg">
+    <div className="px-4 py-6 sm:px-0 flex-grow-1 w-full justify-center rounded-lg text-sm">
       <div
-        className="flex items-center bg-gray-800 text-white text-sm font-bold px-4 py-3 m-2 mx-12 rounded"
+        className="flex items-center bg-gray-800 text-white text-xs px-4 py-3 m-2 mx-12 rounded"
         role="alert"
       >
         <svg
@@ -45,21 +45,32 @@ export const ListSection: React.FC<any> = (props) => {
         />
       )}
       {!showForm && (
-        <section className="animate__animated animate__fadeIn inset-0">
+        <section className="animate__animated animate__fadeIn inset-0 text-sm">
           <div className="relative bg-white ml-4 sm:ml-16 sm:mr-16 p-4 flex justify-center border-gray-100 border border-dotted  rounded">
             <button
-              className="absolute top-0 right-0 m-4 px-0 py-0 rounded-full border-blue-500 border text-blue-500 w-8 h-8 transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+              className="absolute top-0 right-0 m-4 px-0 py-1 rounded-full border-blue-500 border text-blue-500 w-8 h-8 transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
               onClick={() => setShowForm(true)}
             >
               <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
-            <table className="table-auto m-4">
+            <table className="border-collapse w-full mt-10 text-sm">
               <thead>
                 <tr>
-                  <th className="px-4 py-2">Process ID</th>
-                  <th className="px-4 py-2">Task ID</th>
-                  <th className="px-4 py-2">Name</th>
-                  <th className="px-4 py-2">Details</th>
+                  <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                    Process ID
+                  </th>
+                  <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                    Task ID
+                  </th>
+                  <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                    Type
+                  </th>
+                  <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                    Stage
+                  </th>
+                  <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+                    Details
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -69,16 +80,46 @@ export const ListSection: React.FC<any> = (props) => {
                     ({ processInstanceId, taskId, taskName }) => {
                       return (
                         <>
-                          <tr>
-                            <td className="border px-4 py-4">
-                              {processInstanceId}
+                          <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                              <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                                Process ID
+                              </span>
+                              <span className="ml-24 lg:ml-0"> {processInstanceId}</span>
+                             
                             </td>
-                            <td className="border px-4 py-4">{taskId}</td>
-                            <td className="border px-4 py-4">{taskName}</td>
-                            <td className="border px-4 py-4">
+                            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                              <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                                Task ID
+                              </span>
+                              <span className="ml-24 lg:ml-0">{taskId}</span>
+                            </td>
+                            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                              <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                                Type
+                              </span>
+                              <span className="ml-16 lg:ml-0">{`${
+                                taskName
+                                  .trim()
+                                  .toLowerCase()
+                                  .includes("po submitted")
+                                  ? "PO Order"
+                                  : "PO Invoice"
+                              }`}</span>
+                            </td>
+                            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                              <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                                Stage
+                              </span>
+                              <span className="ml-16 lg:ml-0">{taskName}</span>
+                            </td>
+                            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                              <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
+                                Details
+                              </span>
                               <Link
                                 to={`/workflow/${taskId}`}
-                                className="px-2 py-2 border-blue-500 border text-blue-500 text-sm rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                                className="ml-16 lg:ml-0 px-2 py-2 border-blue-500 border text-blue-500 text-sm rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
                               >
                                 Details
                               </Link>
