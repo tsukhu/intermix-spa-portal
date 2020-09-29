@@ -57,3 +57,14 @@ fetchRoutes().then((result) => {
     });
   });
 });
+
+const rootScope = process.env.NODE_ENV === 'production'? '/root-config': '';
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(`${rootScope}/service-worker.js`).then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
+}

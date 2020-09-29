@@ -59,7 +59,8 @@
     "webpack-config-single-spa": "^1.0.7",
     "webpack-config-single-spa-ts": "^1.10.0",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",

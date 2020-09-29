@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// Inside of webpack.config.js:
+const {GenerateSW} = require('workbox-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const activeEnv = process.env.STAGE_ENV || "development";
@@ -35,6 +37,7 @@ module.exports = (env) => ({
     disableHostCheck: true,
   },
   plugins: [
+    new GenerateSW(),
     new HtmlWebpackPlugin({
       inject: false,
       template: "src/index.ejs",

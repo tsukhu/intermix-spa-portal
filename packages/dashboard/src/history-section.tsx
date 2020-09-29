@@ -42,8 +42,8 @@ export const HistorySection: React.FC<any> = (props) => {
       const filteredItems = items.filter((i: any) => i.endTime !== null);
 
       filteredItems.sort(function(a, b) {
-        const aDate = new Date(a.startTime);
-        const bDate = new Date(b.startTime);
+        const aDate: any = new Date(a.startTime);
+        const bDate: any = new Date(b.startTime);
         return aDate - bDate;
       });
       setHistoricItems(filteredItems);

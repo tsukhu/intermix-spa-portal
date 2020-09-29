@@ -2,7 +2,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist && rimraf ../../dist/dashboard",
-    "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/dashboard",
+    "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/dashboard && copyfiles -a -f ./dist/fonts/* ../../dist/dashboard/fonts",
     "build": "npm run clean && webpack --mode=production && npm run copy-for-deploy",
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src",

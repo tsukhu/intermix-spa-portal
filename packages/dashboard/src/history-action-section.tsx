@@ -35,7 +35,7 @@ export const HistoryActionSection: React.FC<any> = (props) => {
       fetchTaskInstances(id).then((res: any) => {
         setProcessing(false);
         const intermediateData = res.data;
-        const finalData = intermediateData.map((item) => ({
+        const finalData = intermediateData.map((item: any) => ({
           ...item,
           type: item.name
             .trim()
@@ -45,8 +45,8 @@ export const HistoryActionSection: React.FC<any> = (props) => {
             : "po_invoice",
         }));
         finalData.sort(function(a, b) {
-          const aDate = new Date(a.startTime);
-          const bDate = new Date(b.startTime);
+          const aDate: any = new Date(a.startTime);
+          const bDate: any = new Date(b.startTime);
           return aDate - bDate
         });
         setTaskHistory(finalData);
