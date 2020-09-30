@@ -55,6 +55,17 @@ export const ActionSection: React.FC<any> = (props) => {
     });
   };
 
+  const fetchPostChangeStatusTask = async (id, status) => {
+    const postUrl = `${props.wfApiUrl}/PO/newstatus/tasks/${id}/${status}`;
+    const encodedUrl = encodeURI(postUrl);
+    return await await fetch(`${encodedUrl}`, {
+      method: "post",
+      headers: {
+        accept: "*/*",
+      },
+    });
+  };
+
   const handleApproval = (id, approved) => {
     try {
       setProcessing(true);
@@ -67,7 +78,7 @@ export const ActionSection: React.FC<any> = (props) => {
     }
   };
 
-  const handleInvoiceWF = (id, { comment, reviewreq, type }) => {
+  const handleInvoiceWF = (id, { comment, reviewreq, type, status }) => {
     try {
       setProcessing(true);
       if (type === "review_invoice") {
@@ -75,8 +86,13 @@ export const ActionSection: React.FC<any> = (props) => {
           store.setTasksUpdated(true);
           navigateToUrl("/workflow");
         });
-      } else {
+      } else if (type === "generate_invoice") {
         fetchPostGenerateInvoiceTask(id, comment).then(() => {
+          store.setTasksUpdated(true);
+          navigateToUrl("/workflow");
+        });
+      } else {
+        fetchPostChangeStatusTask(id, status).then(() => {
           store.setTasksUpdated(true);
           navigateToUrl("/workflow");
         });
@@ -178,7 +194,8 @@ export const ActionSection: React.FC<any> = (props) => {
                               Generate Invoice
                             </button>
                           )}
-                          {task.processDefByKey.toLowerCase() === "reviewresubmit" && (
+                          {task.processDefByKey.toLowerCase() ===
+                            "reviewresubmit" && (
                             <button
                               onClick={() =>
                                 setInvoiceForm({ type: "review_invoice" })
@@ -186,6 +203,17 @@ export const ActionSection: React.FC<any> = (props) => {
                               className="px-2 py-2 m-4 border-red-500 border text-red-500 rounded  hover:bg-red-700 hover:text-white focus:outline-none transition duration-300"
                             >
                               Submit For Review
+                            </button>
+                          )}
+                          {task.processDefByKey.toLowerCase() ===
+                            "choosestatus" && (
+                            <button
+                              onClick={() =>
+                                setInvoiceForm({ type: "change_status" })
+                              }
+                              className="px-2 py-2 m-4 border-red-500 border text-red-500 rounded  hover:bg-red-700 hover:text-white focus:outline-none transition duration-300"
+                            >
+                              Change Invoice Status
                             </button>
                           )}
                           {invoiceForm && (
