@@ -10543,7 +10543,7 @@ parse5@4.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parse5@^6.0.0:
+parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
@@ -12608,14 +12608,14 @@ single-spa-angular@^4.4.2:
   dependencies:
     tslib "^2.0.0"
 
-single-spa-layout@1.0.0-beta.11:
-  version "1.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.0.0-beta.11.tgz#e83607f0c91ed4e1a7985461679fa100c0955fa9"
-  integrity sha512-HymvK/0eE4Gc4rNfEte2DfhpDiPn5p6qU0JczTacELfU0bfvO5/bi0BTr8ly+4a4BeI6boO0y2lt+qvCxpM9oQ==
+single-spa-layout@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.0.1.tgz#996eb606cbe54f33b17c6e9b5bc96e2765114ce4"
+  integrity sha512-PeMQXNy8mXbCsApWzWY3dDq76wEfiNjTKW2f7KauLf5BXLif0+jJjh/+hUp3m4q3OcBTqXZds7XUawLjBoOZ0Q==
   dependencies:
     "@types/parse5" "^5.0.3"
     merge2 "^1.4.1"
-    parse5 "^6.0.0"
+    parse5 "^6.0.1"
 
 single-spa-react@^2.10.4:
   version "2.14.0"
