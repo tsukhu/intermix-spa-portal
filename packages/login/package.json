@@ -41,15 +41,15 @@
     "jest-cli": "^24.9.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
-    "single-spa-react": "^2.10.4",
+    "single-spa-react": "^3.1.0",
     "style-loader": "^1.0.1",
     "systemjs-webpack-interop": "^1.1.2",
     "typescript": "^3.9.5",
     "webpack": "^4.41.2",
-    "webpack-config-single-spa-react": "^1.0.3",
+    "webpack-config-single-spa-react": "^1.17.0",
     "webpack-merge": "^4.2.2",
     "webpack-cli": "^3.3.10",
-    "webpack-config-single-spa-react-ts": "^1.10.0",
+    "webpack-config-single-spa-react-ts": "^1.17.0",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
