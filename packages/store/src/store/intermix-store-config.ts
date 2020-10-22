@@ -10,6 +10,23 @@ export interface User {
   authenticated: boolean;
 }
 
+export interface TaskData {
+  drillbackurl: string;
+  id: string;
+  status: string;
+}
+
+export interface Task {
+  taskId: string;
+  taskName: string;
+  taskData: TaskData;
+}
+
+export interface TaskStatus {
+  label: string;
+  approved: boolean;
+}
+
 export interface MenuItem {
   path: string;
   title: string;
@@ -23,6 +40,8 @@ interface IntermixStoreConfig {
     items?: MenuItem[];
   };
   user: User;
+  tasks: Task[];
+  tasksUpdated: boolean;
 }
 
 export default IntermixStoreConfig;

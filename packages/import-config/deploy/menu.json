@@ -1,37 +1,11 @@
 {
   "menu": {
-    "home": "landing",
+    "home": "workflow",
     "items": [
       {
-        "path": "dashboard",
-        "title": "Dashboard",
-        "iconClasses": "fas fa-tachometer-alt"
-      },
-      {
-        "path": "reports",
-        "title": "Reports",
-        "iconClasses": "fas fa-sticky-note",
-        "roles": ["Admin"]
-      },
-      {
-        "path": "tables",
-        "title": "Tables",
-        "iconClasses": "fas fa-table"
-      },
-      {
-        "path": "forms",
-        "title": "Forms",
-        "iconClasses": "fas fa-align-left"
-      },
-      {
-        "path": "tabs",
-        "title": "Tabbed Content",
-        "iconClasses": "fas fa-tablet-alt"
-      },
-      {
-        "path": "calendar",
-        "title": "Calendar",
-        "iconClasses": "fas fa-calendar"
+        "path": "/workflow",
+        "title": "Workflow",
+        "iconClasses": "fas fa-cogs"
       }
     ]
   }

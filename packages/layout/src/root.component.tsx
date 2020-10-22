@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/global.scss";
 import { navigateToUrl } from "single-spa";
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
-import { getGlobalStore, Role } from "@intermix/store";
+import { getGlobalStore, Role, Task } from "@intermix/store";
 import SideBar from "./components/side-bar";
 import HeaderDesktop from "./components/header-desktop";
 import HeaderMobile from "./components/header-mobile";
@@ -55,6 +55,18 @@ const Root = (props) => {
     return await (await fetch(props.menuApiUrl)).json();
   };
 
+  const fetchTasks = async () => {
+    return await (await fetch(`${props.wfApiUrl}/user/tasks`)).json();
+  };
+
+  const initTasks = async () => {
+    fetchTasks().then((result) => {
+      if (typeof result !== "undefined") {
+        store.setTasks(result);
+      }
+    });
+  };
+
   // Load Routes and add them to the store
   const initMenu = (routes) => {
     fetchMenu().then((result) => {
@@ -80,10 +92,17 @@ const Root = (props) => {
   };
 
   React.useEffect(() => {
+    if (typeof globalStore.tasksUpdated !== "undefined" && globalStore.tasksUpdated) {
+      store.setTasksUpdated(false);
+      initTasks();
+    }
+  },[globalStore.tasksUpdated])
+
+  React.useEffect(() => {
     globalStore.subscribe(setGlobalStore);
     const user = getFromLS(NAMESPACE, "userInfo", "user") || UNAUTH_USER;
-    initMenu(props.routes);
     globalStore.setUser(user);
+    initMenu(props.routes);
   }, []);
 
   React.useEffect(() => {
@@ -109,7 +128,7 @@ const Root = (props) => {
           <div className="w-full flex h-screen overflow-y-hidden">
             <SideBar menu={globalStore.menu} />
             <div className="w-full flex flex-col h-screen overflow-y-hidden">
-              <HeaderDesktop onLogout={() => handleLogout()} />
+              <HeaderDesktop onLogout={() => handleLogout()} tasks={globalStore.tasks} />
               <HeaderMobile
                 menu={globalStore.menu}
                 onLogout={() => handleLogout()}

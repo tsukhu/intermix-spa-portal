@@ -3,6 +3,7 @@ import IntermixStoreConfig, {
   Role,
   User,
   MenuItem,
+  Task,
 } from "./intermix-store-config";
 
 // Declare the subject
@@ -13,6 +14,8 @@ export default class IntermixGlobalStore {
   initialState: IntermixStoreConfig = {
     menu: { home: "", items: [] },
     user: { authenticated: false, role: Role.User, name: "", authToken: "" },
+    tasks: [],
+    tasksUpdated: true
   };
   intermixState: IntermixStoreConfig = this.initialState;
   intermixSubject: Subject<IntermixStoreConfig> = new BehaviorSubject<
@@ -36,7 +39,7 @@ export default class IntermixGlobalStore {
           ...this.intermixState,
           menu: {
             ...this.intermixState.menu,
-            home,
+            home
           },
         };
         this.intermixSubject.next(this.intermixState);
@@ -47,14 +50,28 @@ export default class IntermixGlobalStore {
           menu: {
             ...this.intermixState.menu,
             items: [...this.intermixState.menu.items, item],
-          },
+          }
+        };
+        this.intermixSubject.next(this.intermixState);
+      },
+      setTasks: (tasks: Task[]) => {
+        this.intermixState = {
+          ...this.intermixState,
+          tasks
+        };
+        this.intermixSubject.next(this.intermixState);
+      },
+      setTasksUpdated: (value: boolean) => {
+        this.intermixState = {
+          ...this.intermixState,
+          tasksUpdated: value
         };
         this.intermixSubject.next(this.intermixState);
       },
       setUser: (user: User) => {
         this.intermixState = {
           ...this.intermixState,
-          user,
+          user
         };
         this.intermixSubject.next(this.intermixState);
       },
@@ -65,8 +82,8 @@ export default class IntermixGlobalStore {
             ...this.intermixState.menu,
             items: this.intermixState.menu.items.filter(
               (item: any) => item.path !== path
-            ),
-          },
+            )
+          }
         };
         this.intermixSubject.next(this.intermixState);
       },
@@ -77,7 +94,7 @@ export default class IntermixGlobalStore {
         };
         this.intermixSubject.next(this.intermixState);
       },
-      ...this.initialState,
+      ...this.initialState
     };
 
     this.store.init();
@@ -95,6 +112,14 @@ export default class IntermixGlobalStore {
 
   setUser(user: User) {
     return this.store.setUser(user);
+  }
+
+  setTasks(tasks: Task[]) {
+    return this.store.setTasks(tasks);
+  }
+
+  setTasksUpdated(value: boolean) {
+    return this.store.setTasksUpdated(value);
   }
 
   addMenuItem(item: MenuItem) {

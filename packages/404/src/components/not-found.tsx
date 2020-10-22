@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotFound: React.FC<any> = () => {
   return (
-    <section className="inset-0 mt-20 sm:mt-16 sm:ml-56 absolute font-sans antialiased">
+    <section className="animate__animated animate__fadeIn inset-0 mt-20 sm:mt-16 sm:ml-56 absolute font-sans antialiased">
       <div className="container-notfound">
         <div className="boo-wrapper">
           <div className="boo">
