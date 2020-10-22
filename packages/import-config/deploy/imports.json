@@ -2,7 +2,7 @@
   "imports": {
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
     "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
-    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.3/lib/system/single-spa.min.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.6.0/lib/system/single-spa.min.js",
     "@fortawesome/fontawesome-free": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.js",
     "@intermix/layout": "https://intermix-spa.netlify.app/layout/intermix-layout.js",
     "@intermix/root-config": "https://intermix-spa.netlify.app/root-config/root-config.js",
@@ -14,6 +14,7 @@
     "@intermix/i18n": "https://intermix-spa.netlify.app/i18n/intermix-i18n.js",
     "@intermix/calendar": "https://intermix-spa.netlify.app/calendar/main.js",
     "@intermix/landing": "https://intermix-spa.netlify.app/landing/intermix-landing.js",
+    "@intermix/login": "https://intermix-spa.netlify.app/login/intermix-login.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
     "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
