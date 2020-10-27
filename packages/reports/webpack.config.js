@@ -1,11 +1,12 @@
 const webpackMerge = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 
-module.exports = (webpackConfigEnv) => {
+module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
     orgName: "intermix",
     projectName: "reports",
     webpackConfigEnv,
+    argv
   });
 
   const intermixExternals = {
