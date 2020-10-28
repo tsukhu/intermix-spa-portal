@@ -88,7 +88,7 @@ const Root = (props) => {
 
   React.useEffect(() => {
     if (typeof globalStore.user !== "undefined") {
-      console.log(globalStore.user);
+   //   console.log(globalStore.user);
       saveToLS(NAMESPACE, "userInfo", "user", globalStore.user);
     }
   }, [globalStore]);

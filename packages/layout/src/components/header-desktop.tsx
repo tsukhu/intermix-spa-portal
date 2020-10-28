@@ -7,14 +7,15 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [openAlerts, setOpenAlerts] = React.useState(false);
+  const [searchText,setSearchText] = React.useState('');
   return (
     <header className="w-full items-center bg-white py-2 px-6 pb-1 hidden sm:flex sm:shadow-md">
       <div className="w-2/4 justify-end align-middle text-center items-center z-50">
         <SearchBox
-          searchText={null}
+          searchText={searchText}
           searchPlaceholder={t('Search')}
-          onSearchTextChange={(text) => console.log(text)}
-          onSearchSubmit={() => console.log("Add Search handler")}
+          onSearchTextChange={(e) => {setSearchText(e.target.value);}}
+          onSearchSubmit={(e) => { console.log("Add Search handler"); e.preventDefault(); }}
         />
       </div>
 
@@ -55,10 +56,10 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
         )}
         {openAlerts && (
           <div className="animate__animated animate__fadeIn absolute w-40 bg-white rounded-lg shadow-lg py-2 mt-16 z-50">
-            <div class="py-1">
+            <div className="py-1">
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
@@ -66,18 +67,18 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
               </a>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
                 Alert 2
               </a>
             </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
+            <div className="border-t border-gray-100"></div>
+            <div className="py-1">
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
@@ -85,18 +86,18 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
               </a>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
                 Alert 4
               </a>
             </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
+            <div className="border-t border-gray-100"></div>
+            <div className="py-1">
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
@@ -104,18 +105,18 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
               </a>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
                 Alert 6
               </a>
             </div>
-            <div class="border-t border-gray-100"></div>
-            <div class="py-1">
+            <div className="border-t border-gray-100"></div>
+            <div className="py-1">
               <a
                 href="#"
-                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
               >
                 <i className="fas fa-list mr-3"></i>
@@ -133,7 +134,7 @@ const HeaderDesktop: React.FC<any> = ({onLogout}) => {
               <i className="fas fa-user mr-3"></i>
               {t('Account')}
             </a>
-            <div class="border-t border-gray-100"></div>
+            <div className="border-t border-gray-100"></div>
             <a
               href="#"
               className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"

@@ -20,7 +20,7 @@ const configureLoadingEl = (show) => {
 
 fetchRoutes().then((result) => {
   const routes = constructRoutes(result);
-  console.log(result);
+  // console.log(result);
   const applications = constructApplications({
     routes,
     loadApp({ name }) {
