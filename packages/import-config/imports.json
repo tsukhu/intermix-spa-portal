@@ -4,6 +4,7 @@
       "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
       "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
       "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.6.0/lib/system/single-spa.min.js",
+      "single-spa-angularjs": "https://cdn.jsdelivr.net/npm/single-spa-angularjs@3.2.0/lib/single-spa-angularjs.js",
       "@fortawesome/fontawesome-free": "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.js",
       "@intermix/root-config": "http://localhost:9000/root-config.js",
       "@intermix/layout": "http://localhost:8000/intermix-layout.js",
@@ -16,6 +17,7 @@
       "@intermix/calendar": "http://localhost:4200/main.js",
       "@intermix/landing": "http://localhost:8007/intermix-landing.js",
       "@intermix/login": "http://localhost:8008/intermix-login.js",
+      "@intermix/projects": "http://localhost:8009/intermix-projects.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
       "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
@@ -50,8 +52,8 @@
           "iconClasses": "fas fa-align-left"
         },
         {
-          "path": "tabs",
-          "title": "Tabbed Content",
+          "path": "projects",
+          "title": "Projects",
           "iconClasses": "fas fa-tablet-alt"
         },
         {
@@ -109,6 +111,21 @@
                 "props": {
                   "title": "Login",
                   "path": "login"
+                },
+                "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
+              }
+            ]
+          },
+          {
+            "type": "route",
+            "path": "projects",
+            "routes": [
+              {
+                "type": "application",
+                "name": "@intermix/projects",
+                "props": {
+                  "title": "Projects",
+                  "path": "projects"
                 },
                 "loader": "<div class=\"showbox\">\r\n    <div class=\"loader\">\r\n      <svg class=\"circular\" viewBox=\"25 25 50 50\">\r\n        <circle\r\n          class=\"path\"\r\n          cx=\"50\"\r\n          cy=\"50\"\r\n          r=\"20\"\r\n          fill=\"none\"\r\n          stroke-width=\"2\"\r\n          stroke-miterlimit=\"10\"\r\n        />\r\n      </svg>\r\n    </div>\r\n  </div>"
               }

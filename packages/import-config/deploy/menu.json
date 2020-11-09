@@ -24,8 +24,8 @@
         "iconClasses": "fas fa-align-left"
       },
       {
-        "path": "tabs",
-        "title": "Tabbed Content",
+        "path": "projects",
+        "title": "Projects",
         "iconClasses": "fas fa-tablet-alt"
       },
       {

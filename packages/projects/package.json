@@ -1,0 +1,33 @@
+{
+  "name": "@intermix/projects",
+  "description": "Angular JS projects MFE",
+  "scripts": {
+    "clean:dist": "rimraf ../../dist/projects",
+    "copy-for-deploy": "copyfiles -a -f ./dist/* ../../dist/projects && copyfiles -a -f ./dist/components/** ../../dist/projects/components",
+    "build": "gulp && yarn clean:dist && yarn copy-for-deploy",
+    "start": "concurrently yarn:watch yarn:serve",
+    "serve": "http-server --port 8009 --cors dist",
+    "clean": "gulp clean",
+    "watch": "gulp watch",
+    "lint": "eslint src",
+    "test": "echo 'No tests yet'"
+  },
+  "author": "",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/systemjs": "^6.1.0",
+    "angular": "^1.8.0",
+    "angular-ui-router": "^1.0.25",
+    "concurrently": "^5.1.0",
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-important-stuff": "^1.1.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1"
+  },
+  "dependencies": {
+    "single-spa-angularjs": "^3.2.0"
+  }
+}
