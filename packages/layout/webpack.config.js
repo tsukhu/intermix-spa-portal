@@ -10,7 +10,7 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   const intermixExternals = {
-    externals: [/^@intermix\/.+$/, "react-i18next"],
+    externals: [/^@intermix\/.+$/, "react-i18next", "react-router-dom"],
   };
 
   return webpackMerge.smart(defaultConfig, intermixExternals, {
