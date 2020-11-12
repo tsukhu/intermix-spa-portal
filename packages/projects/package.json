@@ -28,6 +28,6 @@
     "gulp-concat": "^2.6.1"
   },
   "dependencies": {
-    "single-spa-angularjs": "^3.2.0"
+    "single-spa-angularjs": "^4.0.0"
   }
 }

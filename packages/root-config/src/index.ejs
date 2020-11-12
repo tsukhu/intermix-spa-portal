@@ -206,9 +206,17 @@
         <div class="dot-text"></div>
       </div>
     </div>
+    
     <script>
       System.import('@intermix/root-config');
       System.import('@intermix/styleguide');
+      System.import('angular');
+      System.import('angular-ui-router');
+      System.import("single-spa-angularjs").then(
+        (m) => {
+        window.singleSpaAngularjs = m.default;
+        }
+      ); 
     </script>
     <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
   </body>

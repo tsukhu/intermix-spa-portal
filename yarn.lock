@@ -12307,10 +12307,10 @@ single-spa-angular@^4.4.2:
   dependencies:
     tslib "^2.0.0"
 
-single-spa-angularjs@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/single-spa-angularjs/-/single-spa-angularjs-3.3.0.tgz#603c01d7b0d4682185300c4be7402395f6ddbd66"
-  integrity sha512-knGbJvkUtdy04DuppS7PWDBY3MQF2ih31CqNq6g/9QiwcR+A/VB6lGIOKYhrWyPUK75H1fxpcXRd2OWnrVgTGg==
+single-spa-angularjs@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/single-spa-angularjs/-/single-spa-angularjs-4.0.0.tgz#5d33a4f4afa3b0286b030481129621cffa1eedd6"
+  integrity sha512-mWXpxdr3iobXlDICqHSP5tg9uS7VszkoqYvPj20F81ryYhLVn0JLjRRj3zPVQN0TPMCamkRhyOP5XQ8SvN6h2A==
 
 single-spa-layout@^1.1.2:
   version "1.1.2"
