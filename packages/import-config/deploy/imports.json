@@ -21,6 +21,7 @@
     "@intermix/landing": "https://intermix-spa.netlify.app/landing/intermix-landing.js",
     "@intermix/login": "https://intermix-spa.netlify.app/login/intermix-login.js",
     "@intermix/projects": "https://intermix-spa.netlify.app/projects/intermix-projects.js",
+    "@intermix/widgets": "https://intermix-spa.netlify.app/widgets/intermix-widgets.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
     "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",

@@ -22,6 +22,7 @@
       "@intermix/landing": "http://localhost:8007/intermix-landing.js",
       "@intermix/login": "http://localhost:8008/intermix-login.js",
       "@intermix/projects": "http://localhost:8009/intermix-projects.js",
+      "@intermix/widgets": "http://localhost:8010/intermix-widgets.js",
       "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
       "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js",
       "i18next": "https://cdn.jsdelivr.net/npm/i18next@19.5.2/dist/umd/i18next.min.js",
@@ -43,7 +44,9 @@
           "path": "reports",
           "title": "Reports",
           "iconClasses": "fas fa-sticky-note",
-          "roles": ["Admin"]
+          "roles": [
+            "Admin"
+          ]
         },
         {
           "path": "tables",
@@ -74,7 +77,10 @@
         "type": "route",
         "path": "/",
         "routes": [
-          { "type": "application", "name": "@intermix/layout" },
+          {
+            "type": "application",
+            "name": "@intermix/layout"
+          },
           {
             "type": "route",
             "path": "dashboard",
@@ -167,7 +173,12 @@
           },
           {
             "type": "route",
-            "routes": [{ "type": "application", "name": "@intermix/notfound" }],
+            "routes": [
+              {
+                "type": "application",
+                "name": "@intermix/notfound"
+              }
+            ],
             "default": true
           }
         ]
