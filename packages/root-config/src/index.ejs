@@ -212,6 +212,11 @@
       System.import('@intermix/styleguide');
       System.import('angular');
       System.import('angular-ui-router');
+      System.import('single-spa').then(
+        (m) => {
+        window.mountRootParcel = m.mountRootParcel;
+        }
+      ); 
       System.import("single-spa-angularjs").then(
         (m) => {
         window.singleSpaAngularjs = m.default;

@@ -24,7 +24,7 @@ const SideBar: React.FC<any> = ({ menu }) => {
           .map((item) => {
             return (
               <NavLink
-                to={item.path}
+                to={`/${item.path}`}
                 key={item.title}
                 className="menu-item flex items-center text-white py-4 pl-6 active:text-new-gray-darker active:bg-ocean-light hover:bg-ocean-light hover:text-new-gray-darker hover:opacity-75"
               >
